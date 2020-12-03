@@ -3,9 +3,9 @@
 
 > 1. Muhammad Dwi Prasetyo ([@prasetyomuhdwi][anggota1])
 > 2. Gunawan Prasetyo ([@ganonym776][anggota2])
-> 3. Hairul Akhyar Maulana
-> 4. Anggi Nur Widianingsih
-> 5. Akbar Aryo Wicaksono
+> 3. Hairul Akhyar Maulana ([@][anggota3])
+> 4. Anggi Nur Widianingsih ([@angginurwidianingsih][anggota4])
+> 5. Akbar Aryo Wicaksono ([@akbararyo][anggota5])
 
 ### Table of contents
 * [General info](#general-info)
@@ -25,10 +25,14 @@ Project ini dibuat untuk memenuhi tugas final project **Pemrograman Web Lanjut**
 
 ### Setup
 To run this project locally :
-> 1. masuk ke folder **config**
-> 1. copy/duplicate file **example.env.php**
-> 1. rename menjadi **env.php**
-> 1. buka file dan sesuaikan dengan info database anda
+> 1. masuk ke folder **App/Config**
+> 2. copy/duplicate file **example.env.php**
+> 3. rename hasil duplicatenya menjadi **env.php**
+> 4. buka file dan sesuaikan dengan info database anda
+> 5. buka file dan sesuaikan dengan info database anda
 
 [anggota1]: (https://github.com/prasetyomuhdwi)
 [anggota2]: (https://github.com/ganonym776)
+[anggota3]: ()
+[anggota4]: (https://github.com/angginurwidianingsih/)
+[anggota5]: (https://github.com/akbararyo/)
