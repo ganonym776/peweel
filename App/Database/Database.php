@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Database;
+namespace Database;
 
-use App\Configs\Env;
+use Configs\Env;
 use mysqli;
 
 class Database extends Env

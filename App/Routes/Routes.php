@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Routes;
+namespace Routes;
 
-use App\Controllers\Controller;
+use Controllers\Controller;
 
 class Routes
 {

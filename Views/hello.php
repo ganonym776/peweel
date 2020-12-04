@@ -1,5 +1,5 @@
 <?php
-  $a = new Models\Model;
+
 ?>
 
 <!DOCTYPE html>
@@ -12,9 +12,7 @@
 </head>
 
 <body>
-  <?php
-    var_dump ($a::getAll('web'));
-  ?>
+  <h1>WEB</h1>
 </body>
 
 </html>
