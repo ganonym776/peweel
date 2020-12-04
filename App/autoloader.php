@@ -3,7 +3,7 @@
 function AutoLoader($className)
 {
     $path = 'App/';
-    $fullpath = $path . $className . '.php';
+    $fullpath = $path . str_replace('\\', '/', $className) . '.php';
 
     if (!file_exists($fullpath)) {
         return false;
