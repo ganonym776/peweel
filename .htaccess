@@ -1,21 +1,7 @@
 <IfModule mod_rewrite.c>  
-    DirectoryIndex index.php
-    
-    # Turn on 
+
     RewriteEngine On
-    RewriteBase /peweel/
-    
-    RewriteCond %{DOCUMENT_ROOT}%{REQUEST_FILENAME} !-f
-    RewriteCond %{DOCUMENT_ROOT}%{REQUEST_FILENAME} !-d
-    RewriteCond %{DOCUMENT_ROOT}%{REQUEST_FILENAME} !-l
-
-    #RewriteCond %{REQUEST_URI} !^/assets/
-    #RewriteCond $1 !^(favicon\.ico|favicon\.png|media|robots\.txt|crossdomain\.xml|.*\.css|.*\js)
-
-    # RewriteRule ^(.*) index.php?url=$1 [L,QSA]
-    RewriteRule ^([^/]+)/? index.php?url=$1 [L,QSA]
-
-   # Generic 404 for anyplace on the site  
-   # ...  
+    RewriteRule ^$ public/ [L]
+    RewriteRule (.*) public/$1 [L]
 
 </IfModule> 

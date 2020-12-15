@@ -474,4 +474,5 @@ composer.lock
 *.scss.map
 
 
-App/Configs/env.php
+app/Configs/Env.php
+backups

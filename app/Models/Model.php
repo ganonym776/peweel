@@ -2,7 +2,7 @@
 
 namespace Models;
 
-use Database\Database;
+use Library\Database;
 
 class Model
 {
