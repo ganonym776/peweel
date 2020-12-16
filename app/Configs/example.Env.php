@@ -22,5 +22,5 @@ class Env // Tempat menaruh data yang credential
 
   // ::: parameter website ::: //
   // url website
-  public static $URLROOT = 'http://localhost/pwl';
+  public static $URLROOT = 'http://localhost/peweel';
 }
