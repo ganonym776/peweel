@@ -18,4 +18,10 @@ class User extends Model
         $result = $this->db->select('SELECT * FROM user');
         return $result;
     }
+
+    public function register($data)
+    {
+        $result = $this->db->insert('user', $data);
+        return $result;
+    }
 }

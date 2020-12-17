@@ -26,10 +26,28 @@ class Database extends Env
         $mysqli = $this::connect();
         $this->stmt = $mysqli->prepare($queryString);
         return $this->resultSet();
+        $mysqli->close();
     }
 
-    public function insert()
+    public function insert($tableName, $data)
     {
+        $mysqli = $this::connect();
+        $keyValues = $values = "";
+        foreach ($data as $key => $value) {
+            $keyValues =  '' . $key . ',' . $keyValues;
+            $values =  '`' . $value . '`,' . $values;
+        }
+        $keyValues = rtrim($keyValues, ',');
+        $values = rtrim($values, ',');
+        $sql = "INSERT INTO `$tableName` ($keyValues) VALUES ($values)";
+        var_dump($sql);
+        if ($mysqli->query($sql) === true) {
+            echo "Records inserted successfully.";
+        } else {
+            echo "ERROR: Could not able to execute $sql. " . $mysqli->error;
+        }
+        // Close connection
+        $mysqli->close();
     }
 
     public function bind($params, $value)

@@ -21,9 +21,11 @@ class Core
         $url = $this->getUrl();
 
         // Mencari file Routes dan ucword akan mengubah namanya menjadi Kapital
-        if (file_exists('../app/Routes/' . ucwords($url[0]) . '.php')) {
-            $this->currentRoute = '\\Routes\\' . ucwords($url[0]);
-            unset($url[0]);
+        if (isset($url[0])) {
+            if (file_exists('../app/Routes/' . ucwords($url[0]) . '.php')) {
+                $this->currentRoute = '\\Routes\\' . ucwords($url[0]);
+                unset($url[0]);
+            }
         }
 
         // membuat object Route
