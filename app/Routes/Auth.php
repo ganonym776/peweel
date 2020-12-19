@@ -37,7 +37,11 @@ class Auth
             $d = new Database();
             $d->insert('user', $data);
         } else {
-            Controller::view('Auth/Login');
+            $data = [
+                'title' => 'Login',
+                'asset' => $this->asset(),
+            ];
+            Controller::view('Auth/Login', $data);
         }
     }
 
