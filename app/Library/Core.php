@@ -38,7 +38,6 @@ class Core
                 unset($url[1]);
             }
         }
-
         // mengecek apakah url memiliki parameter lalu disimpan pada variable params
         $this->params = $url ? array_values($url) : [];
 

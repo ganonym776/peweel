@@ -25,6 +25,7 @@ class Database extends Env
     {
         $mysqli = $this::connect();
         $this->stmt = $mysqli->prepare($queryString);
+        $this->stmt->execute();
         return $this->resultSet();
         $mysqli->close();
     }
@@ -34,39 +35,29 @@ class Database extends Env
         $mysqli = $this::connect();
         $keyValues = $values = "";
         foreach ($data as $key => $value) {
-            $keyValues =  '' . $key . ',' . $keyValues;
-            $values =  '`' . $value . '`,' . $values;
+            $keyValues =  $key . ',' . $keyValues;
+            $values =  "'" . $value . "'," . $values;
         }
-        $keyValues = rtrim($keyValues, ',');
-        $values = rtrim($values, ',');
-        $sql = "INSERT INTO `$tableName` ($keyValues) VALUES ($values)";
-        var_dump($sql);
+        $keyValues = $keyValues . "created_at";
+        $currentDateTime = date('Y-m-d H:i:s');
+        $values = $values . "'$currentDateTime'";
+        $sql = "INSERT INTO $tableName ($keyValues) VALUES ($values)";
         if ($mysqli->query($sql) === true) {
-            echo "Records inserted successfully.";
+            return true;
         } else {
-            echo "ERROR: Could not able to execute $sql. " . $mysqli->error;
+            return false;
         }
         // Close connection
         $mysqli->close();
     }
 
-    public function bind($params, $value)
-    {
-    }
-
-    public function execute()
-    {
-        return $this->stmt->execute();
-    }
-
     public function resultSet()
     {
-        $this->execute();
         $result = $this->stmt->get_result();
+        $arr = [];
         while ($row = $result->fetch_assoc()) {
             $arr[] = $row;
         }
-        if (!$arr) exit('No rows');
         return $arr;
     }
 }

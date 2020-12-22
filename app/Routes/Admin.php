@@ -7,7 +7,7 @@ use Library\Controller;
 use Library\Core;
 use Models\Model;
 
-class Pages extends Controller
+class Admin extends Controller
 {
     private function env($request)
     {
@@ -22,11 +22,11 @@ class Pages extends Controller
     public function index()
     {
         $data = [
-            'title' => 'Home page',
+            'title' => 'Dasboard',
             'URLROOT' => $this->env("urlroot"),
             'asset' => $this->env("asset"),
         ];
 
-        $this::view('Index', $data);
+        $this::view('Admin/Dashboard', $data);
     }
 }
