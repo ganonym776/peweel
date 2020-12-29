@@ -8,10 +8,18 @@
     <link rel="shortcut icon" href="<?php echo $data['asset'] ?>/img/favico.ico" type="image/x-icon">
     <link rel="stylesheet" href="<?php echo $data['asset'] ?>/css/bootstrap.min.css">
     <link rel="stylesheet" href="<?php echo $data['asset'] ?>/css/style.css">
+    <style>
+
+    </style>
 </head>
 
 <body>
-    Dashboard Admin
+    <div class="container not-found">
+        <img src="<?php echo $data['asset'] ?>/img/img2.png">
+        <h1>Oopss!!!</h1>
+        <p>Halaman yang kamu cari tidak ditemukan. Silahkan kembali ke <span class="font-weight-bold text-primary"><a link href="<?php echo $data['URLROOT'] ?>">Halaman Utama.</span></p>
+        </p>
+    </div>
 </body>
 
 </html>

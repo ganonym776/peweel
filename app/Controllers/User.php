@@ -164,10 +164,11 @@ class User extends Controller
     {
         $_SESSION['username'] = $user['username'];
         $_SESSION['email'] = $user['email'];
-        if ($user['role'] === "customer") {
-            header('location:' . $this->urlroot() . '/user/index');
+        $_SESSION['r'] = $user['role'];
+        if ($_SESSION['r'] === "customer") {
+            header('location:' . $this->urlroot() . '/user/dashboard');
         } else {
-            header('location:' . $this->urlroot() . '/admin/index');
+            header('location:' . $this->urlroot() . '/admin/dashboard');
         }
     }
 
@@ -175,6 +176,7 @@ class User extends Controller
     {
         unset($_SESSION['username']);
         unset($_SESSION['email']);
+        unset($_SESSION['r']);
         header('location:' . $this->urlroot() . '/auth/login');
     }
 }

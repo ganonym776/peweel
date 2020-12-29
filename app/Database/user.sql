@@ -37,7 +37,8 @@ CREATE TABLE `user` (
   `address` text CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci,
   `first_name` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
   `last_name` varchar(100) NOT NULL,
-  `phone_num` varchar(18) DEFAULT NULL,
+  `phone_num` varchar(18) NOT NULL,
+  `location` varchar(200) DEFAULT NULL,
   `created_at` datetime DEFAULT NULL,
   `update_at` datetime DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
@@ -47,7 +48,7 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`id`, `username`, `password`, `email`, `role`, `address`, `first_name`, `last_name`, `phone_num`, `created_at`, `update_at`) VALUES
-(7, 'Test123', '$2y$10$dM2eg.H3XGINk9.nkzDhQuNKp5buu3c0eVy8PzDM8ils1nfrAshgW', 'test@gmail.com', 'admin', '', 'Test', 'test', '081273862137', '2020-12-22 23:00:00', '2020-12-22 23:00:00');
+(1, 'Test123', '$2y$10$dM2eg.H3XGINk9.nkzDhQuNKp5buu3c0eVy8PzDM8ils1nfrAshgW', 'test@gmail.com', 'admin', '', 'Test', 'test', '081273862137', '2020-12-22 23:00:00', '2020-12-22 23:00:00');
 
 --
 -- Indexes for dumped tables

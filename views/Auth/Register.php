@@ -13,8 +13,7 @@
 
 <body class="container register">
     <div class="bekasan" style="display: flex; justify-content:center; ">
-        <img src="<?php echo $data['asset'] ?>/img/logo.svg" alt="logo" width="30">
-        <h1 class="mt-1">bekasan</h1>
+       <a href="<?php echo $data['URLROOT'] ?>"><img class="my-2" src="<?php echo $data['asset'] ?>/img/img5.png" alt="logo" width="200"></a>
     </div>
     <div class="content">
         <div class="">

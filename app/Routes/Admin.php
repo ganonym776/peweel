@@ -19,14 +19,18 @@ class Admin extends Controller
         }
     }
 
-    public function index()
+    public function dashboard()
     {
-        $data = [
-            'title' => 'Dasboard',
-            'URLROOT' => $this->env("urlroot"),
-            'asset' => $this->env("asset"),
-        ];
+        if ($_SESSION['r'] === "admin") {
+            $data = [
+                'title' => 'Dashboard',
+                'URLROOT' => $this->env("urlroot"),
+                'asset' => $this->env("asset"),
+            ];
 
-        $this::view('Admin/Dashboard', $data);
+            $this::view('Admin/Dashboard', $data);
+        } else {
+            header('location:' . $this->env("urlroot") . '/auth/login');
+        }
     }
 }

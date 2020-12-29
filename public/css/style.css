@@ -1,3 +1,11 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito&display=swap");
+
+* {
+  font-family: "Nunito", sans-serif;
+}
+body {
+  background-color: #feffff;
+}
 .error-feedback {
   padding: 0.1rem;
   color: tomato;
@@ -83,3 +91,167 @@
 }
 
 /* ======= End Login ======= */
+/* ======= Start 404 ======= */
+.not-found .container {
+  width: 100%;
+  min-height: 200px;
+}
+
+.not-found img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+
+.not-found h1,
+.not-found p {
+  font-family: taller_evolution_rev;
+  src: url(taller_evolution_rev.otf);
+  text-align: center;
+}
+/* ======= End 404 ======= */
+/* ======= Start AboutUs ======= */
+.aboutus body {
+  background-color: #ffffff;
+  font-family: "Nunito", sans-serif;
+}
+
+/* navbar */
+.aboutus .navbar {
+  background-color: #ffffff;
+}
+
+.aboutus .navbar-brand img {
+  max-height: 40px;
+}
+
+.aboutus .btn-navbar-right {
+  margin-top: -10px !important;
+  margin-bottom: -8px !important;
+  margin-right: -18px !important;
+
+  height: 70px;
+  border-radius: 0;
+}
+
+/* header */
+.aboutus header {
+  padding: 180px 0px 165px;
+  background-image: url("../img/img8.jpg");
+  background-size: cover;
+  background-position: center;
+  margin-bottom: 100px;
+}
+
+.aboutus main section {
+  margin-bottom: 100px;
+  margin-top: 200px;
+}
+/* ======= End 404 ======= */
+/* ======= Start Pusat Bantuan ======= */
+.pusat-bantuan body {
+  background-color: #ffffff;
+  font-family: "Nunito", sans-serif;
+}
+
+/* navbar */
+.pusat-bantuan .navbar {
+  background-color: #ffffff;
+}
+
+.pusat-bantuan .navbar-brand img {
+  max-height: 40px;
+}
+
+.pusat-bantuan .btn-navbar-right {
+  margin-top: -10px !important;
+  margin-bottom: -8px !important;
+  margin-right: -18px !important;
+
+  height: 70px;
+  border-radius: 0;
+}
+
+/* header */
+.pusat-bantuan header {
+  padding: 50px 0px 50px;
+}
+
+.pusat-bantuan img.img-head {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.pusat-bantuan header h1 {
+  font-weight: bolder;
+}
+
+/* main */
+.pusat-bantuan main {
+  margin-bottom: 50px;
+}
+/* ======= End Pusat Bantuan ======= */
+/* ======= Start Pasang Iklan ======= */
+.pasang-iklan body {
+  background-color: #ffffff;
+  font-family: "Nunito", sans-serif;
+}
+
+/* navbar */
+.pasang-iklan .navbar {
+  background-color: #ffffff;
+}
+
+.pasang-iklan .navbar-brand img {
+  max-height: 40px;
+}
+
+.pasang-iklan .btn-navbar-right {
+  margin-top: -10px !important;
+  margin-bottom: -8px !important;
+  margin-right: -18px !important;
+
+  height: 70px;
+  border-radius: 0;
+}
+
+/* header */
+.pasang-iklan header {
+  padding: 200px 0px 50px;
+  background-image: url("../img/img8.jpg");
+  background-size: cover;
+  background-position: center;
+  margin-bottom: 100px;
+}
+
+.pasang-iklan header h1 {
+  color: #ffffff;
+}
+/* ======= End Pasang Iklan ======= */
+/* ======= Start Home ======= */
+/* navbar */
+.home .navbar {
+  background-color: #ffffff;
+}
+.home .line {
+  height: 30px;
+  width: 2px;
+  margin: 0 1rem;
+  background-color: black;
+}
+
+.home .navbar-brand img {
+  max-height: 2rem;
+}
+
+.home .btn-navbar-right {
+  margin-top: -10px !important;
+  margin-bottom: -8px !important;
+  margin-right: -18px !important;
+
+  height: 70px;
+  border-radius: 0;
+}
+/* ======= End Home ======= */

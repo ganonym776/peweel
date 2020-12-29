@@ -1,5 +1,4 @@
 <?php?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -14,8 +13,7 @@
 
 <body class="container login">
     <div class="bekasan" style="display: flex; justify-content:center; ">
-        <img src="<?php echo $data['asset'] ?>/img/logo.svg" alt="logo" width="30">
-        <h1 class="mt-1">bekasan</h1>
+        <a href="<?php echo $data['URLROOT'] ?>"><img class="my-2" src="<?php echo $data['asset'] ?>/img/img5.png" alt="logo" width="200"></a>
     </div>
     <div class="content">
         <div class="">
@@ -65,31 +63,17 @@
                                 <div class="form-group">
                                     <input type="submit" name="" value="Login" class="btn btn-primary btn-block">
                                 </div>
-                                <p class="text-center minitext">Belum punya akun? <span class="font-weight-bold text-primary"><a href="<?php echo $data['URLROOT'] ?>">Daftar di sini!</a></span></p>
+                                <p class="text-center minitext">Belum punya akun? <span class="font-weight-bold text-primary"><a href="<?php echo $data['URLROOT'] ?>/auth/register">Daftar di sini!</a></span></p>
                             </form>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        </dev>
+    </div>
 
-        <script>
-            // function validateForm() {
-            //     if (document.forms["formPendaftaran"]["email"].value == "") {
-            //         alert("Isi emailnya dong !");
-            //         document.forms["formPendaftaran"]["email"].focus();
-            //         return false;
-            //     }
-            //     if (document.forms["formPendaftaran"]["sandi"].selectedIndex < 1) {
-            //         alert("Kata sandi jangan lupa diisi ya..");
-            //         document.forms["formPendaftaran"]["sandi"].focus();
-            //         return false;
-            //     }
-            // }
-        </script>
-        <script src="bootstrap/js/bootstrap.js"></script>
-        <script src="<?php echo $data['asset'] ?>/js/bootstrap.min.js"></script>
+    <script src="<?php echo $data['asset'] ?>/js/jquery-3.5.1.slim.min.js"></script>
+    <script src="<?php echo $data['asset'] ?>/js/bootstrap.min.js"></script>
 </body>
 
 </html>

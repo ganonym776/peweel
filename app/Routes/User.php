@@ -19,14 +19,34 @@ class User extends Controller
         }
     }
 
-    public function index()
+    public function dashboard()
     {
-        $data = [
-            'title' => 'Dasboard',
-            'URLROOT' => $this->env("urlroot"),
-            'asset' => $this->env("asset"),
-        ];
+        if ($_SESSION['r']) {
+            $data = [
+                'title' => 'Dashboard',
+                'URLROOT' => $this->env("urlroot"),
+                'asset' => $this->env("asset"),
+            ];
 
-        $this::view('User/Dashboard', $data);
+            $this::view('User/Dashboard', $data);
+        } else {
+            header('location:' . $this->env("urlroot") . '/auth/login');
+        }
+    }
+
+    public function profil()
+    {
+        if ($_SESSION['r']) {
+
+            $data = [
+                'title' => 'Profil',
+                'URLROOT' => $this->env("urlroot"),
+                'asset' => $this->env("asset"),
+            ];
+
+            $this::view('User/Profil', $data);
+        } else {
+            header('location:' . $this->env("urlroot") . '/auth/login');
+        }
     }
 }

@@ -16,6 +16,8 @@ class Pages extends Controller
             return $e::$URLROOT . "/public";
         } elseif ($request === "urlroot") {
             return $e::$URLROOT;
+        } elseif ($request === "vendor") {
+            return $e::$URLROOT . "/vendor";
         }
     }
 
@@ -25,8 +27,45 @@ class Pages extends Controller
             'title' => 'Home page',
             'URLROOT' => $this->env("urlroot"),
             'asset' => $this->env("asset"),
+            'vendor' => $this->env("vendor"),
         ];
 
         $this::view('Index', $data);
+    }
+
+    public function aboutus()
+    {
+        $data = [
+            'title' => 'About Us',
+            'URLROOT' => $this->env("urlroot"),
+            'asset' => $this->env("asset"),
+            'vendor' => $this->env("vendor"),
+        ];
+
+        $this::view('Pages/AboutUs', $data);
+    }
+
+    public function help()
+    {
+        $data = [
+            'title' => 'Pusat Bantuan',
+            'URLROOT' => $this->env("urlroot"),
+            'asset' => $this->env("asset"),
+            'vendor' => $this->env("vendor"),
+        ];
+
+        $this::view('Help/PusatBantuan', $data);
+    }
+
+    public function error()
+    {
+        $data = [
+            'title' => 'Ups.. Not Found!!',
+            'URLROOT' => $this->env("urlroot"),
+            'asset' => $this->env("asset"),
+            'vendor' => $this->env("vendor"),
+        ];
+
+        $this::view('Pages/404', $data);
     }
 }

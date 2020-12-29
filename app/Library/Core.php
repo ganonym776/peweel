@@ -11,7 +11,7 @@ class Core
     protected $currentRoute = '\\Routes\\Pages';
 
     // mendefinisikan method atau fungsi pada file Route
-    protected $currentMethod = 'index';
+    protected $currentMethod = 'error';
 
     // berfungsi untuk menyimpan parameter yang ada di url 
     protected $params = [];
@@ -19,6 +19,9 @@ class Core
     public function __construct()
     {
         $url = $this->getUrl();
+        if (!isset($url)) {
+            $this->currentMethod = "index";
+        }
 
         // Mencari file Routes dan ucword akan mengubah namanya menjadi Kapital
         if (isset($url[0])) {
@@ -42,7 +45,14 @@ class Core
         $this->params = $url ? array_values($url) : [];
 
         // berfungsi untuk membuat satuan array menjadi paramater/argumen dari sebuah function.
-        call_user_func_array([$this->currentRoute, $this->currentMethod], $this->params);
+        error_reporting(E_ERROR | E_PARSE);
+
+        if (!call_user_func_array([$this->currentRoute, $this->currentMethod], $this->params)) {
+            $this->currentRoute = '\\Routes\\' . ucwords("Pages");
+            // membuat object Route
+            $this->currentRoute = new $this->currentRoute();
+            call_user_func_array([$this->currentRoute, $this->currentMethod], $this->params);
+        }
     }
 
     // mengambil url dan mengelolanya 

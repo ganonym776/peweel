@@ -1,0 +1,15 @@
+{
+    "name": "mdp/bekasan",
+    "description": "",
+    "authors": [
+        {
+            "name": "prasetyomuhdwi",
+            "email": "muhammad.2365@students.amikom.ac.id"
+        }
+    ],
+    "autoload": {
+        "files": ["public/index.php"],
+        "classmap": ["app"]
+    },
+    "minimum-stability": "prefer-stable"
+}
