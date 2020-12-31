@@ -97,26 +97,21 @@
           <div class="row">
             <div class="col-9">
                 <div class="text-center mb-4">
-                  <h1>Bagaimana Cara Pasang Iklan ?</h1>
+                  <h1>Bagaimana cara mencari barang di Bekasan ?</h1>
                 </div>
+                <p>Ada beberapa cara untuk mencari barang di Bekasan</p>
                 <ol>
-                  <li>Klik tombol “Jual" di bagian kanan atas.</li>
-                  <li>Pilih kategori dan sub kategori.</li>
-                  <li>Tulis judul yang menarik dan deskripsi yang jelas.</li>
-                  <li>Cantumkan harga.</li>
-                  <li>Upload foto produk maksimal sampai 12 foto (jumlah foto akan semakin menarik pembeli, dan mempercepat penjualan Anda).</li>
-                  <li>Masukkan lokasi Anda, bisa dengan "Lokasi saat ini" atau set secara manual.</li>
-                  <li>Periksa detail informasi Anda untuk memastikan Anda memposting dari akun yang Anda inginkan.</li>
-                  <li>Periksa kembali iklan Anda sebelum klik "Pasang Iklan Sekarang".</li>
+                  <li>Buka halaman utama Bekasan lalu klik filter.</li>
+                  <li>Mencari pada tombol search di header</li>
                 </ol>
             </div>
             <div class="col-3">
               <div class="card">
                 <h5 class="text-center mt-3">Isu yang Paling Dicari :</h5>
                 <ul>
-                  <li><a href="pusatbantuan-caribarang.html">Bagaimana cara mencari barang di Bekasan ?</a></li>
-                  <li><a href="#">Apa kegunaan fitur chat ?</a></li>
-                  <li><a href="#">Bagaimana cara mengetahui penipuan ?</a></li>
+                  <li><a href="pusatbantuan-pasangiklan.html">Bagaimana cara memasang iklan di Bekasan ?</a></li>
+                  <li><a href="pusatbantuan-chat">Apa kegunaan fitur chat ?</a></li>
+                  <li><a href="pusatbantuan-penipuan">Bagaimana cara mengetahui penipuan ?</a></li>
               </ul>
               </div>
             </div>

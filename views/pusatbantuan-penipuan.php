@@ -97,26 +97,33 @@
           <div class="row">
             <div class="col-9">
                 <div class="text-center mb-4">
-                  <h1>Bagaimana Cara Pasang Iklan ?</h1>
+                  <h1>Bagaimana cara mengetahui penipuan ?</h1>
                 </div>
+                <br>
+                <p>
+                    Berikut ini adalah beberapa ciri/karakteristik dari iklan berbahaya/penjual nakal:
+                </p>
                 <ol>
-                  <li>Klik tombol “Jual" di bagian kanan atas.</li>
-                  <li>Pilih kategori dan sub kategori.</li>
-                  <li>Tulis judul yang menarik dan deskripsi yang jelas.</li>
-                  <li>Cantumkan harga.</li>
-                  <li>Upload foto produk maksimal sampai 12 foto (jumlah foto akan semakin menarik pembeli, dan mempercepat penjualan Anda).</li>
-                  <li>Masukkan lokasi Anda, bisa dengan "Lokasi saat ini" atau set secara manual.</li>
-                  <li>Periksa detail informasi Anda untuk memastikan Anda memposting dari akun yang Anda inginkan.</li>
-                  <li>Periksa kembali iklan Anda sebelum klik "Pasang Iklan Sekarang".</li>
+                  <li>Hindari iklan dari barang/jasa yang terlalu menarik. Misalnya terlalu murah, diskon besar, dan janji-janji yang terlalu muluk.</li>
+                  <li>Hal-hal yang janggal/aneh pada akan/saat bertransaksi. Misalnya berusaha untuk meminta DP (Down Payment) terlebih dahulu, meminta data pribadi seperti foto/data identitas pribadi, nomor rekening, alamat email Anda, data kartu kredit/debit Anda, dll.</li>
+                </ol>
+                <br>
+                <p>
+                    Berikut ini adalah beberapa ciri/karakteristik dari Pembeli berbahaya :
+                </p>
+                <ol>
+                  <li>Meminta data pribadi seperti foto/data identitas pribadi, nomor rekening, alamat email Anda, data kartu kredit/debit Anda.</li>
+                  <li>Pembeli mengirimkan bukti transfer palsu.</li>
+                  <li>Pembeli tidak terlalu menawar produk dan langsung menyetujui harga barang. </li>
                 </ol>
             </div>
             <div class="col-3">
               <div class="card">
                 <h5 class="text-center mt-3">Isu yang Paling Dicari :</h5>
                 <ul>
+                  <li><a href="pusatbantuan-pasangiklan.html">Bagaimana cara memasang iklan di Bekasan ?</a></li>
+                  <li><a href="pusatbantuan-chat">Apa kegunaan fitur chat ?</a></li>
                   <li><a href="pusatbantuan-caribarang.html">Bagaimana cara mencari barang di Bekasan ?</a></li>
-                  <li><a href="#">Apa kegunaan fitur chat ?</a></li>
-                  <li><a href="#">Bagaimana cara mengetahui penipuan ?</a></li>
               </ul>
               </div>
             </div>

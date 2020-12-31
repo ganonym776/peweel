@@ -72,9 +72,6 @@
                         <li class="nav-item">
                             <a class="nav-link" href="aboutus.html">Tentang Kami <span class="sr-only">(current)</span></a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="pusatbantuan.html">Pusat Bantuan</a>
-                        </li>
                     </ul>
                 </div>
             </nav>
@@ -124,7 +121,7 @@
                         <div class="card-body">
                           <h5 class="card-title">Apa kegunaan fitur chat?</h5>
                           <p class="card-text">Untuk meningkatkan transaksi yang menguntungkan untuk penjual dan pembeli, Bekasan menghadirkan fitur chat.</p>
-                          <a href="#" class="btn btn-primary">Selengkapnya</a>
+                          <a href="pusatbantuan-chat.html" class="btn btn-primary">Selengkapnya</a>
                         </div>
                       </div>
                     </div>
@@ -137,7 +134,7 @@
                         <div class="card-body">
                           <h5 class="card-title">Bagaimana cara mencari barang di Bekasan?</h5>
                           <p class="card-text"> Bekasan telah mencoba membuat fitur pencarian menjadi lebih sederhana, nyaman & mudah digunakan.</p>
-                          <a href="#" class="btn btn-primary">Selengkapnya</a>
+                          <a href="pusatbantuan-caribarang.html" class="btn btn-primary">Selengkapnya</a>
                         </div>
                       </div>
                     </div>
@@ -146,7 +143,7 @@
                         <div class="card-body">
                           <h5 class="card-title">Bagaimana cara mengetahui penipuan?</h5>
                           <p class="card-text">Berikut ini adalah beberapa ciri/karakteristik dari iklan berbahaya/penjual nakal yang perlu dihindari :</p>
-                          <a href="#" class="btn btn-primary">Selengkapnya</a>
+                          <a href="pusatbantuan-penipuan.html" class="btn btn-primary">Selengkapnya</a>
                         </div>
                       </div>
                     </div>
@@ -238,8 +235,7 @@
                     <div class="col-12 col-lg-3">
                       <h5>BEKASAN</h5>
                       <ul class="list-unstyled">
-                        <li><a href="#">Tentang Bekasan</a></li>
-                        <li><a href="#">Pusat Bantuan</a></li>
+                        <li><a href="aboutus.html">Tentang Bekasan</a></li>
                       </ul>
                     </div>
                     <div class="col-12 col-lg-3">

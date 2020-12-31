@@ -97,26 +97,23 @@
           <div class="row">
             <div class="col-9">
                 <div class="text-center mb-4">
-                  <h1>Bagaimana Cara Pasang Iklan ?</h1>
+                  <h1>Apa kegunaan fitur chat ?</h1>
                 </div>
+                <p>Fitur Chat adalah media berkirim pesan di Bekasan yang memungkinkan calon pembeli dan penjual untuk berkomunikasi secara langsung. Bagi calon pembeli, mereka dapat bertanya langsung kepada penjual terkait informasi dari barang yang ingin dibeli, sedangkan bagi penjual, fitur ini akan sangat membantu dalam meningkatkan kesan fast response kepada calon pembeli serta meningkatkan kepercayaan calon pembeli untuk membeli barang yang dijual.
+                </p>
+                <p>Berikut adalah Cara Menggunakan Fitur Chat di Bekasan:</p>
                 <ol>
-                  <li>Klik tombol “Jual" di bagian kanan atas.</li>
-                  <li>Pilih kategori dan sub kategori.</li>
-                  <li>Tulis judul yang menarik dan deskripsi yang jelas.</li>
-                  <li>Cantumkan harga.</li>
-                  <li>Upload foto produk maksimal sampai 12 foto (jumlah foto akan semakin menarik pembeli, dan mempercepat penjualan Anda).</li>
-                  <li>Masukkan lokasi Anda, bisa dengan "Lokasi saat ini" atau set secara manual.</li>
-                  <li>Periksa detail informasi Anda untuk memastikan Anda memposting dari akun yang Anda inginkan.</li>
-                  <li>Periksa kembali iklan Anda sebelum klik "Pasang Iklan Sekarang".</li>
+                  <li>Login di Bekasan.</li>
+                  <li>Klik ikon Chat pada halaman produk atau klik Chat pada profil pengguna.</li>
                 </ol>
             </div>
             <div class="col-3">
               <div class="card">
                 <h5 class="text-center mt-3">Isu yang Paling Dicari :</h5>
                 <ul>
+                  <li><a href="pusatbantuan-pasangiklan.html">Bagaimana cara memasang iklan di Bekasan ?</a></li>
                   <li><a href="pusatbantuan-caribarang.html">Bagaimana cara mencari barang di Bekasan ?</a></li>
-                  <li><a href="#">Apa kegunaan fitur chat ?</a></li>
-                  <li><a href="#">Bagaimana cara mengetahui penipuan ?</a></li>
+                  <li><a href="pusatbantuan-penipuan">Bagaimana cara mengetahui penipuan ?</a></li>
               </ul>
               </div>
             </div>
