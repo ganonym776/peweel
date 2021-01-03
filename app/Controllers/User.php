@@ -132,6 +132,20 @@ class User extends Controller
             }
         }
 
+        // cek apakah data provinsi valid
+        if (empty($data['provinsi'])) {
+            $errors["provinsi"] = "Provinsi harus diisi";
+        } elseif (!preg_match($nameValidation, $data['provinsi'])) {
+            $errors["provinsi"] = "Provinsi hanya boleh menggunkan huruf";
+        }
+
+        // cek apakah data kabupaten valid
+        if (empty($data['kabupaten'])) {
+            $errors["kabupaten"] = "Provinsi harus diisi";
+        } elseif (!preg_match($nameValidation, $data['kabupaten'])) {
+            $errors["kabupaten"] = "Provinsi hanya boleh menggunkan huruf";
+        }
+
         // cek apakah data address valid
         if (isset($data['address'])) {
             if (!preg_match('/^[a-zA-Z0-9 .]*$/', $data['address'])) {

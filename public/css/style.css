@@ -38,7 +38,7 @@ body {
 
 /* Hide all steps by default: */
 .register #submit,
-.register #regis_tab {
+.register .regis_tab {
   display: none;
 }
 

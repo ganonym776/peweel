@@ -162,9 +162,9 @@
       <div class="swiper-wrapper">
 
         <!-- Slides -->
-        <div class="swiper-slide"> <img src="<?php echo $data['asset'] ?>/unify/img-temp/1920x500/img1.jpg" alt="Image Description" height="300"></div>
-        <div class="swiper-slide"> <img src="<?php echo $data['asset'] ?>/unify/img-temp/1920x500/img1.jpg" alt="Image Description" height="300"></div>
-        <div class="swiper-slide"> <img src="<?php echo $data['asset'] ?>/unify/img-temp/1920x500/img1.jpg" alt="Image Description" height="300"></div>
+        <div class="swiper-slide"> <img class="img-fluid" src="<?php echo $data['asset'] ?>/unify/img-temp/1920x500/img1.jpg" alt="Image Description"></div>
+        <div class="swiper-slide"> <img class="img-fluid" src="<?php echo $data['asset'] ?>/unify/img-temp/1920x500/img1.jpg" alt="Image Description"></div>
+        <div class="swiper-slide"> <img class="img-fluid" src="<?php echo $data['asset'] ?>/unify/img-temp/1920x500/img1.jpg" alt="Image Description"></div>
 
       </div>
 
@@ -279,6 +279,21 @@
       autoplay: {
         delay: 3600,
         disableOnInteraction: false,
+      },
+      // Responsive breakpoints
+      breakpoints: {
+        '@0.75': {
+          slidesPerView: 1,
+          spaceBetween: 20,
+        },
+        '@1.00': {
+          slidesPerView: 1,
+          spaceBetween: 40,
+        },
+        '@1.50': {
+          slidesPerView: 1,
+          spaceBetween: 50,
+        },
       },
 
       // If we need pagination

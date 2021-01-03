@@ -4,8 +4,6 @@ namespace Routes;
 
 use Configs\Env;
 use Library\Controller;
-use Library\Core;
-use Models\Model;
 
 class Admin extends Controller
 {

@@ -3,11 +3,9 @@
 namespace Routes;
 
 use Configs\Env;
-use Library\Controller;
-use Library\Core;
-use Models\Model;
+use Controllers\User as ControllerUser;
 
-class User extends Controller
+class User extends ControllerUser
 {
     private function env($request)
     {

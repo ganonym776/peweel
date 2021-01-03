@@ -3,17 +3,16 @@
 namespace Routes;
 
 use Configs\Env;
-use Controllers\User;
-use Library\Controller;
-use Library\Database;
+use Controllers\User as Controller;
 
-class Auth
+class Auth extends Controller
 {
     protected $userController;
     public function __construct()
     {
-        $this->userController = new User();
+        $this->userController = new Controller();
     }
+
     private function env($request)
     {
         $e = new Env();
@@ -72,6 +71,8 @@ class Auth
                 'first_name' => trim($_POST['first_name']),
                 'last_name' => trim($_POST['last_name']),
                 'phone_num' => trim($_POST['phone_num']),
+                'provinsi' => trim($_POST['provinsi']),
+                'kabupaten' => trim($_POST['kabupaten']),
                 'address' => trim($_POST['address']),
                 'password' => trim($_POST['password']),
                 're_password' => trim($_POST['re_password'])
@@ -103,6 +104,8 @@ class Auth
                 'username' => '',
                 'email' => '',
                 'first_name' => '',
+                'provinsi' => '',
+                'kabupaten' => '',
                 'last_name' => '',
                 'phone_num' => '',
                 'address' => ''

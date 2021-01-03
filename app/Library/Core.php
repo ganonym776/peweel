@@ -51,6 +51,7 @@ class Core
             $this->currentRoute = '\\Routes\\' . ucwords("Pages");
             // membuat object Route
             $this->currentRoute = new $this->currentRoute();
+            // jalankan Route dan Method, serta kirimkan params jika ada
             call_user_func_array([$this->currentRoute, $this->currentMethod], $this->params);
         } else {
             call_user_func_array([$this->currentRoute, $this->currentMethod], $this->params);

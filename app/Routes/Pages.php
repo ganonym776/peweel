@@ -4,8 +4,6 @@ namespace Routes;
 
 use Configs\Env;
 use Library\Controller;
-use Library\Core;
-use Models\Model;
 
 class Pages extends Controller
 {
@@ -55,18 +53,6 @@ class Pages extends Controller
         ];
 
         $this::view('Help/PusatBantuan', $data);
-    }
-
-    public function list()
-    {
-        $data = [
-            'title' => 'Bekasan - Pusat jual beli barang bekas',
-            'URLROOT' => $this->env("urlroot"),
-            'asset' => $this->env("asset"),
-            'vendor' => $this->env("vendor"),
-        ];
-
-        $this::view('Pages/List', $data);
     }
 
     public function error()

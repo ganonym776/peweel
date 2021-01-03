@@ -13,7 +13,7 @@
 
 <body class="container register">
     <div class="bekasan" style="display: flex; justify-content:center; ">
-       <a href="<?php echo $data['URLROOT'] ?>"><img class="my-2" src="<?php echo $data['asset'] ?>/img/img5.png" alt="logo" width="200"></a>
+        <a href="<?php echo $data['URLROOT'] ?>"><img class="my-2" src="<?php echo $data['asset'] ?>/img/img5.png" alt="logo" width="200"></a>
     </div>
     <div class="content">
         <div class="">
@@ -29,7 +29,7 @@
                         </div>
                         <div class="card-body">
                             <form action="<?php echo $data['URLROOT'] ?>/auth/register" method="post" id="regForm">
-                                <div id="regis_tab">
+                                <div class="regis_tab">
                                     <h3 class="py-1">Informasi Akun</h3>
                                     <div class="form-group">
                                         <p>Masukan username :*</p>
@@ -69,7 +69,7 @@
                                         </div>
                                     <?php endif ?>
                                 </div>
-                                <div id="regis_tab">
+                                <div class="regis_tab">
                                     <h3 class="py-1">Informasi Personal</h3>
                                     <div class="form-group">
                                         <p>Masukan nama depan :*</p>
@@ -83,6 +83,24 @@
                                         <p>Masukan Nomor Telpon :*</p>
                                         <input type="text" name="phone_num" class="form-control <?php echo (isset($data['error']['phone_num'])) ? 'is-invalid' : ''; ?>" placeholder="Nomor Telpon *" value="<?php echo $data['phone_num'] ?>" required>
                                     </div>
+                                </div>
+                                <div class="regis_tab">
+                                    <h3 class="py-1">Informasi Personal</h3>
+                                    <div class="form-group">
+                                        <p>Provinsi :*</p>
+                                        <select name="provinsi" class="form-control <?php echo (isset($data['error']['provinsi'])) ? 'is-invalid' : ''; ?>" placeholder="Provinsi *" value="<?php echo $data['provinsi'] ?>" required>
+                                            <option value="DIY">DIY</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <p>Kabupaten :*</p>
+                                        <select name="kabupaten" class="form-control <?php echo (isset($data['error']['kabupaten'])) ? 'is-invalid' : ''; ?>" placeholder="Kabupaten *" value="<?php echo $data['kabupaten'] ?>" required>
+                                            <option value="Sleman">Sleman</option>
+                                            <option value="Kota Yogya">Kota Yogya</option>
+                                            <option value="Bantul">Bantul</option>
+                                            <option value="Kulon Progo">Kulon Progo</option>
+                                        </select>
+                                    </div>
                                     <div class="form-group">
                                         <p>Masukan Alamat :</p>
                                         <textarea name="address" id="address" cols="42" rows="2" placeholder="Alamat " class="<?php echo (isset($data['error']['address'])) ? 'is-invalid' : ''; ?>"><?php echo $data['address'] ?></textarea>
@@ -93,11 +111,11 @@
                                     <div style="display:flex; justify-content:flex-end;">
                                         <button type="button" class="btn btn-secondary mr-2" id="prevBtn" onclick="regis_nextPrev(-1)">Previous</button>
                                         <button type="button" class="btn btn-primary" id="nextBtn" onclick="regis_nextPrev(1)">Next</button>
-                                        <input type="submit" id="submit" value="Daftar" class="btn btn-primary">
                                     </div>
                                 </div>
                                 <!-- Circles which indicates the steps of the form: -->
                                 <div class="mt-1" style="text-align:center;">
+                                    <span class="step"></span>
                                     <span class="step"></span>
                                     <span class="step"></span>
                                 </div>

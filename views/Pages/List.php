@@ -31,7 +31,7 @@
   <link rel="stylesheet" href="<?php echo $data['asset'] ?>/unify/css/custom.css">
 </head>
 
-<body>
+<body class="list">
   <header id="js-header" class="u-header u-header--sticky-top u-header--change-appearance" data-header-fix-moment="2000" data-header-fix-effect="slide">
     <div class="u-header__section g-transition-0_5">
       <!-- Topbar -->
@@ -40,8 +40,8 @@
           <div class="row align-items-center">
             <div class="col-xl-2 col-lg-2 col-md-2 col-sm-1">
               <!-- Logo -->
-              <a class="navbar-brand align-self-center" href="<?php echo $data['URLROOT'] ?>">
-                <img src="<?php echo $data['asset'] ?>/img/img5.png" alt="Logo Bekasan">
+              <a class="d-flex" href="<?php echo $data['URLROOT'] ?>">
+                <img src="<?php echo $data['asset'] ?>/img/img5.png" alt="Logo Bekasan" height="40">
               </a>
               <!-- End Logo -->
             </div>
@@ -101,25 +101,27 @@
   </header>
 
   <main>
-    <div class="container-fluid g-pb-50">
-      <!-- Slider owl carousel -->
-      <div class="owl-carousel owl-theme">
-        <div class="item">
-          <img src="<?php echo $data['asset'] ?>/unify/img-temp/1920x500/img1.jpg" alt="Image Description">
+    <?php
+    if (isset($data['index'])) {
+    ?>
+      <div class="container-fluid g-pb-50">
+        <!-- Slider owl carousel -->
+        <div class="owl-carousel owl-theme">
+          <div class="item">
+            <img src="<?php echo $data['asset'] ?>/unify/img-temp/1920x500/img1.jpg" alt="Image Description">
+          </div>
+          <div class="item">
+            <img src="<?php echo $data['asset'] ?>/unify/img-temp/1920x500/img1.jpg" alt="Image Description">
+          </div>
         </div>
-        <div class="item">
-          <img src="<?php echo $data['asset'] ?>/unify/img-temp/1920x500/img1.jpg" alt="Image Description">
-        </div>
+        <!-- End Slider owl carousel -->
       </div>
-      <!-- End Slider owl carousel -->
-    </div>
 
-    <!-- New Lands -->
-    <div class="container-fluid text-center g-pt-50 g-pb-80">
-      <h2 class="h4 g-mb-30">Choose Categories ...</h2>
-
-      <!-- Products - Carousel Image -->
-      <div class="js-carousel g-mx-40" data-infinite="true" data-slides-show="3" data-center-mode="true" data-center-padding="60px" data-arrows-classes="u-arrow-v1 g-width-30 g-height-30 g-color-white g-bg-primary g-bg-primary-dark-v1--hover g-absolute-centered--y" data-arrow-left-classes="fa fa-angle-left g-left-minus-40 g-brd-right g-brd-white-opacity-0_1" data-arrow-right-classes="fa fa-angle-right g-right-minus-40" data-responsive='[{
+      <!-- New Lands -->
+      <div class="container-fluid text-center g-pt-50 g-pb-80">
+        <h2 class="h4 g-mb-30">Choose Categories ...</h2>
+        <!-- Products - Carousel Image -->
+        <div class="js-carousel g-mx-40" data-infinite="true" data-slides-show="3" data-center-mode="true" data-center-padding="60px" data-arrows-classes="u-arrow-v1 g-width-30 g-height-30 g-color-white g-bg-primary g-bg-primary-dark-v1--hover g-absolute-centered--y" data-arrow-left-classes="fa fa-angle-left g-left-minus-40 g-brd-right g-brd-white-opacity-0_1" data-arrow-right-classes="fa fa-angle-right g-right-minus-40" data-responsive='[{
                  "breakpoint": 1800,
                  "settings": {
                    "slidesToShow": 4
@@ -150,83 +152,27 @@
                    "slidesToShow": 1
                  }
                }]'>
-        <div class="js-slide g-px-10">
-          <a class="u-block-hover" href="#">
-            <span class="d-block u-block-hover u-bg-overlay g-bg-primary-opacity-0_3--hover--after g-transition-0_3 mb-3">
-              <img class="img-fluid w-100" src="<?php echo $data['asset'] ?>/unify/img-temp/400x250/img4.jpg" alt="Image Description">
-            </span>
-          </a>
-          <h3 class="h6 mb-0">Transportation</h3>
+          <?php
+          foreach ($data['kategori'] as $key => $value) {
+          ?>
+            <div class="js-slide d-flex flex-column align-items-center">
+              <a class="u-block-hover" href="#">
+                <span class="d-block u-block-hover u-bg-overlay g-bg-primary-opacity-0_3--hover--after g-transition-0_3 mb-3">
+                  <img class="img-fluid" src="<?php echo $data['asset'] ?>/img/<?php echo $value['icon'] ?>" alt="<?php echo $value['nama_kategori'] ?>" width="90">
+                </span>
+              </a>
+              <h3 class="h6 mb-0"><?php echo $value['nama_kategori'] ?></h3>
+            </div>
+          <?php
+          }
+          ?>
         </div>
-        <div class="js-slide g-px-10">
-          <a class="u-block-hover" href="#">
-            <span class="d-block u-block-hover u-bg-overlay g-bg-primary-opacity-0_3--hover--after g-transition-0_3 mb-3">
-              <img class="img-fluid w-100" src="<?php echo $data['asset'] ?>/unify/img-temp/400x250/img5.jpg" alt="Image Description">
-            </span>
-          </a>
-          <h3 class="h6 mb-0">Elektronik</h3>
-        </div>
-        <div class="js-slide g-px-10">
-          <a class="u-block-hover" href="#">
-            <span class="d-block u-block-hover u-bg-overlay g-bg-primary-opacity-0_3--hover--after g-transition-0_3 mb-3">
-              <img class="img-fluid w-100" src="<?php echo $data['asset'] ?>/unify/img-temp/400x250/img6.jpg" alt="Image Description">
-            </span>
-          </a>
-          <h3 class="h6 mb-0">Gadget</h3>
-        </div>
-        <div class="js-slide g-px-10">
-          <a class="u-block-hover" href="#">
-            <span class="d-block u-block-hover u-bg-overlay g-bg-primary-opacity-0_3--hover--after g-transition-0_3 mb-3">
-              <img class="img-fluid w-100" src="<?php echo $data['asset'] ?>/unify/img-temp/400x250/img7.jpg" alt="Image Description">
-            </span>
-          </a>
-          <h3 class="h6 mb-0">Dress</h3>
-        </div>
-        <div class="js-slide g-px-10">
-          <a class="u-block-hover" href="#">
-            <span class="d-block u-block-hover u-bg-overlay g-bg-primary-opacity-0_3--hover--after g-transition-0_3 mb-3">
-              <img class="img-fluid w-100" src="<?php echo $data['asset'] ?>/unify/img-temp/400x250/img8.jpg" alt="Image Description">
-            </span>
-          </a>
-          <h3 class="h6 mb-0">Furniture</h3>
-        </div>
-        <div class="js-slide g-px-10">
-          <a class="u-block-hover" href="#">
-            <span class="d-block u-block-hover u-bg-overlay g-bg-primary-opacity-0_3--hover--after g-transition-0_3 mb-3">
-              <img class="img-fluid w-100" src="<?php echo $data['asset'] ?>/unify/img-temp/400x250/img9.jpg" alt="Image Description">
-            </span>
-          </a>
-          <h3 class="h6 mb-0">Shoes</h3>
-        </div>
-        <div class="js-slide g-px-10">
-          <a class="u-block-hover" href="#">
-            <span class="d-block u-block-hover u-bg-overlay g-bg-primary-opacity-0_3--hover--after g-transition-0_3 mb-3">
-              <img class="img-fluid w-100" src="<?php echo $data['asset'] ?>/unify/img-temp/400x250/img10.jpg" alt="Image Description">
-            </span>
-          </a>
-          <h3 class="h6 mb-0">Laptop</h3>
-        </div>
-        <div class="js-slide g-px-10">
-          <a class="u-block-hover" href="#">
-            <span class="d-block u-block-hover u-bg-overlay g-bg-primary-opacity-0_3--hover--after g-transition-0_3 mb-3">
-              <img class="img-fluid w-100" src="<?php echo $data['asset'] ?>/unify/img-temp/400x250/img11.jpg" alt="Image Description">
-            </span>
-          </a>
-          <h3 class="h6 mb-0">Book</h3>
-        </div>
-        <div class="js-slide g-px-10">
-          <a class="u-block-hover" href="#">
-            <span class="d-block u-block-hover u-bg-overlay g-bg-primary-opacity-0_3--hover--after g-transition-0_3 mb-3">
-              <img class="img-fluid w-100" src="<?php echo $data['asset'] ?>/unify/img-temp/400x250/img12.jpg" alt="Image Description">
-            </span>
-          </a>
-          <h3 class="h6 mb-0">Others</h3>
-        </div>
+        <!-- Products - Carousel Image -->
       </div>
-      <!-- Products - Carousel Image -->
-    </div>
-    <!-- End New Lands -->
-
+      <!-- End New Lands -->
+    <?php
+    }
+    ?>
     <div class="container">
       <div class="row">
         <!-- Content -->
@@ -234,28 +180,6 @@
           <div class="g-pl-15--lg">
             <!-- Filters -->
             <div class="d-flex justify-content-end align-items-center g-brd-bottom g-brd-gray-light-v4 g-pt-40 g-pb-20">
-              <!-- Show -->
-              <div class="g-mr-60">
-                <h2 class="h6 align-middle d-inline-block g-font-weight-400 text-uppercase g-pos-rel g-top-1 mb-0">Show:
-                </h2>
-
-                <!-- Secondary Button -->
-                <div class="d-inline-block btn-group g-line-height-1_2">
-                  <button type="button" class="btn btn-secondary dropdown-toggle h6 align-middle g-brd-none g-color-gray-dark-v5 g-color-black--hover g-bg-transparent text-uppercase g-font-weight-300 g-font-size-12 g-pa-0 g-pl-10 g-ma-0" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    9
-                  </button>
-                  <div class="dropdown-menu rounded-0">
-                    <a class="dropdown-item g-color-gray-dark-v4 g-font-weight-300" href="#!">All</a>
-                    <a class="dropdown-item g-color-gray-dark-v4 g-font-weight-300" href="#!">5</a>
-                    <a class="dropdown-item g-color-gray-dark-v4 g-font-weight-300" href="#!">15</a>
-                    <a class="dropdown-item g-color-gray-dark-v4 g-font-weight-300" href="#!">20</a>
-                    <a class="dropdown-item g-color-gray-dark-v4 g-font-weight-300" href="#!">25</a>
-                  </div>
-                </div>
-                <!-- End Secondary Button -->
-              </div>
-              <!-- End Show -->
-
               <!-- Sort By -->
               <div class="g-mr-60">
                 <h2 class="h6 align-middle d-inline-block g-font-weight-400 text-uppercase g-pos-rel g-top-1 mb-0">Sort
@@ -267,7 +191,7 @@
                     Bestseller
                   </button>
                   <div class="dropdown-menu rounded-0">
-                    <a class="dropdown-item g-color-gray-dark-v4 g-font-weight-300" href="#!">Bestseller</a>
+                    <a class="dropdown-item g-color-gray-dark-v4 g-font-weight-300" href="#!">Name</a>
                     <a class="dropdown-item g-color-gray-dark-v4 g-font-weight-300" href="#!">Trending</a>
                     <a class="dropdown-item g-color-gray-dark-v4 g-font-weight-300" href="#!">Price low to high</a>
                     <a class="dropdown-item g-color-gray-dark-v4 g-font-weight-300" href="#!">price high to low</a>
@@ -296,358 +220,35 @@
 
             <!-- Products -->
             <div class="row g-pt-30 g-mb-50">
-              <div class="col-6 col-lg-4 g-mb-30">
-                <!-- Product -->
-                <figure class="g-pos-rel g-mb-20">
-                  <img class="img-fluid" src="<?php echo $data['asset'] ?>/unify/img-temp/480x700/img1.jpg" alt="Image Description">
+              <?php
+              foreach ($data['item'] as $key => $value) {
+                if (is_array($value)) {
+              ?>
+                  <div class="col-6 col-lg-4 g-mb-30">
+                    <!-- Product -->
+                    <figure class="g-pos-rel g-mb-20">
+                      <img class="img-fluid" src="<?php echo $value['lokasi_foto'] ?>" alt="Image Description">
+                    </figure>
 
-                  <figcaption class="w-100 g-bg-primary g-bg-black--hover text-center g-pos-abs g-bottom-0 g-transition-0_2 g-py-5">
-                    <a class="g-color-white g-font-size-11 text-uppercase g-letter-spacing-1 g-text-underline--none--hover" href="#!">New Arrival</a>
-                  </figcaption>
-                </figure>
-
-                <div class="media">
-                  <!-- Product Info -->
-                  <div class="d-flex flex-column">
-                    <h4 class="h6 g-color-black mb-1">
-                      <a class="u-link-v5 g-color-black g-color-primary--hover" href="#!">
-                        Summer shorts
-                      </a>
-                    </h4>
-                    <a class="d-inline-block g-color-gray-dark-v5 g-font-size-13" href="#!">Man</a>
-                    <span class="d-block g-color-black g-font-size-17">$52.00</span>
+                    <div class="media">
+                      <!-- Product Info -->
+                      <div class="d-flex flex-column">
+                        <h4 class="h6 g-color-black mb-1">
+                          <a class="u-link-v5 g-color-black g-color-primary--hover" href="#!">
+                            <?php echo $value['nama_item']
+                            ?>
+                          </a>
+                        </h4>
+                        <span class="d-block g-color-black g-font-size-17"><?php echo $value['harga'] ?></span>
+                      </div>
+                      <!-- End Product Info -->
+                    </div>
+                    <!-- End Product -->
                   </div>
-                  <!-- End Product Info -->
-
-                  <!-- Products Icons -->
-                  <ul class="list-inline media-body text-right">
-                    <li class="list-inline-item align-middle mx-0">
-                      <a class="u-icon-v1 u-icon-size--sm g-color-gray-dark-v5 g-color-primary--hover g-font-size-15 rounded-circle" href="#!" data-toggle="tooltip" data-placement="top" title="Add to Cart">
-                        <i class="icon-finance-100 u-line-icon-pro"></i>
-                      </a>
-                    </li>
-                    <li class="list-inline-item align-middle mx-0">
-                      <a class="u-icon-v1 u-icon-size--sm g-color-gray-dark-v5 g-color-primary--hover g-font-size-15 rounded-circle" href="#!" data-toggle="tooltip" data-placement="top" title="Add to Wishlist">
-                        <i class="icon-medical-022 u-line-icon-pro"></i>
-                      </a>
-                    </li>
-                  </ul>
-                  <!-- End Products Icons -->
-                </div>
-                <!-- End Product -->
-              </div>
-
-              <div class="col-6 col-lg-4 g-mb-30">
-                <!-- Product -->
-                <figure class="g-pos-rel g-mb-20">
-                  <img class="img-fluid" src="<?php echo $data['asset'] ?>/unify/img-temp/480x700/img2.jpg" alt="Image Description">
-
-                  <span class="u-ribbon-v1 g-width-40 g-height-40 g-color-white g-bg-primary g-font-size-13 text-center text-uppercase g-rounded-50x g-top-10 g-right-minus-10 g-px-2 g-py-10">-40%</span>
-                </figure>
-
-                <div class="media">
-                  <!-- Product Info -->
-                  <div class="d-flex flex-column">
-                    <h4 class="h6 g-color-black mb-1">
-                      <a class="u-link-v5 g-color-black g-color-primary--hover" href="#!">
-                        Stylish shirt
-                      </a>
-                    </h4>
-                    <a class="d-inline-block g-color-gray-dark-v5 g-font-size-13" href="#!">Woman</a>
-                    <span class="d-block g-color-black g-font-size-17">$99.00</span>
-                  </div>
-                  <!-- End Product Info -->
-
-                  <!-- Products Icons -->
-                  <ul class="list-inline media-body text-right">
-                    <li class="list-inline-item align-middle mx-0">
-                      <a class="u-icon-v1 u-icon-size--sm g-color-gray-dark-v5 g-color-primary--hover g-font-size-15 rounded-circle" href="#!" data-toggle="tooltip" data-placement="top" title="Add to Cart">
-                        <i class="icon-finance-100 u-line-icon-pro"></i>
-                      </a>
-                    </li>
-                    <li class="list-inline-item align-middle mx-0">
-                      <a class="u-icon-v1 u-icon-size--sm g-color-gray-dark-v5 g-color-primary--hover g-font-size-15 rounded-circle" href="#!" data-toggle="tooltip" data-placement="top" title="Add to Wishlist">
-                        <i class="icon-medical-022 u-line-icon-pro"></i>
-                      </a>
-                    </li>
-                  </ul>
-                  <!-- End Products Icons -->
-                </div>
-                <!-- End Product -->
-              </div>
-
-              <div class="col-6 col-lg-4 g-mb-30">
-                <!-- Product -->
-                <figure class="g-pos-rel g-mb-20">
-                  <img class="img-fluid" src="<?php echo $data['asset'] ?>/unify/img-temp/480x700/img3.jpg" alt="Image Description">
-
-                  <figcaption class="w-100 g-bg-lightred text-center g-pos-abs g-bottom-0 g-transition-0_2 g-py-5">
-                    <span class="g-color-white g-font-size-11 text-uppercase g-letter-spacing-1">Sold Out</a>
-                  </figcaption>
-                </figure>
-
-                <div class="media">
-                  <!-- Product Info -->
-                  <div class="d-flex flex-column">
-                    <h4 class="h6 g-color-black mb-1">
-                      <a class="u-link-v5 g-color-black g-color-primary--hover" href="#!">
-                        Classic jacket
-                      </a>
-                    </h4>
-                    <a class="d-inline-block g-color-gray-dark-v5 g-font-size-13" href="#!">Man</a>
-                    <span class="d-block g-color-black g-font-size-17">$49.99</span>
-                  </div>
-                  <!-- End Product Info -->
-
-                  <!-- Products Icons -->
-                  <ul class="list-inline media-body text-right">
-                    <li class="list-inline-item align-middle mx-0">
-                      <a class="u-icon-v1 u-icon-size--sm g-color-gray-dark-v5 g-color-primary--hover g-font-size-15 rounded-circle" href="#!" data-toggle="tooltip" data-placement="top" title="Add to Cart">
-                        <i class="icon-finance-100 u-line-icon-pro"></i>
-                      </a>
-                    </li>
-                    <li class="list-inline-item align-middle mx-0">
-                      <a class="u-icon-v1 u-icon-size--sm g-color-gray-dark-v5 g-color-primary--hover g-font-size-15 rounded-circle" href="#!" data-toggle="tooltip" data-placement="top" title="Add to Wishlist">
-                        <i class="icon-medical-022 u-line-icon-pro"></i>
-                      </a>
-                    </li>
-                  </ul>
-                  <!-- End Products Icons -->
-                </div>
-                <!-- End Product -->
-              </div>
-
-              <div class="col-6 col-lg-4 g-mb-30">
-                <!-- Product -->
-                <figure class="g-pos-rel g-mb-20">
-                  <img class="img-fluid" src="<?php echo $data['asset'] ?>/unify/img-temp/480x700/img4.jpg" alt="Image Description">
-                </figure>
-
-                <div class="media">
-                  <!-- Product Info -->
-                  <div class="d-flex flex-column">
-                    <h4 class="h6 g-color-black mb-1">
-                      <a class="u-link-v5 g-color-black g-color-primary--hover" href="#!">
-                        Wool lined parka
-                      </a>
-                    </h4>
-                    <a class="d-inline-block g-color-gray-dark-v5 g-font-size-13" href="#!">Woman</a>
-                    <span class="d-block g-color-black g-font-size-17">$82.37</span>
-                  </div>
-                  <!-- End Product Info -->
-
-                  <!-- Products Icons -->
-                  <ul class="list-inline media-body text-right">
-                    <li class="list-inline-item align-middle mx-0">
-                      <a class="u-icon-v1 u-icon-size--sm g-color-gray-dark-v5 g-color-primary--hover g-font-size-15 rounded-circle" href="#!" data-toggle="tooltip" data-placement="top" title="Add to Cart">
-                        <i class="icon-finance-100 u-line-icon-pro"></i>
-                      </a>
-                    </li>
-                    <li class="list-inline-item align-middle mx-0">
-                      <a class="u-icon-v1 u-icon-size--sm g-color-gray-dark-v5 g-color-primary--hover g-font-size-15 rounded-circle" href="#!" data-toggle="tooltip" data-placement="top" title="Add to Wishlist">
-                        <i class="icon-medical-022 u-line-icon-pro"></i>
-                      </a>
-                    </li>
-                  </ul>
-                  <!-- End Products Icons -->
-                </div>
-                <!-- End Product -->
-              </div>
-
-              <div class="col-6 col-lg-4 g-mb-30">
-                <!-- Product -->
-                <figure class="g-pos-rel g-mb-20">
-                  <img class="img-fluid" src="<?php echo $data['asset'] ?>/unify/img-temp/480x700/img5.jpg" alt="Image Description">
-
-                  <figcaption class="w-100 g-bg-lightred text-center g-pos-abs g-bottom-0 g-transition-0_2 g-py-5">
-                    <span class="g-color-white g-font-size-11 text-uppercase g-letter-spacing-1">Sold Out</a>
-                  </figcaption>
-                </figure>
-
-                <div class="media">
-                  <!-- Product Info -->
-                  <div class="d-flex flex-column">
-                    <h4 class="h6 g-color-black mb-1">
-                      <a class="u-link-v5 g-color-black g-color-primary--hover" href="#!">
-                        Hooded jeans
-                      </a>
-                    </h4>
-                    <a class="d-inline-block g-color-gray-dark-v5 g-font-size-13" href="#!">Man</a>
-                    <span class="d-block g-color-black g-font-size-17">$35.99</span>
-                  </div>
-                  <!-- End Product Info -->
-
-                  <!-- Products Icons -->
-                  <ul class="list-inline media-body text-right">
-                    <li class="list-inline-item align-middle mx-0">
-                      <a class="u-icon-v1 u-icon-size--sm g-color-gray-dark-v5 g-color-primary--hover g-font-size-15 rounded-circle" href="#!" data-toggle="tooltip" data-placement="top" title="Add to Cart">
-                        <i class="icon-finance-100 u-line-icon-pro"></i>
-                      </a>
-                    </li>
-                    <li class="list-inline-item align-middle mx-0">
-                      <a class="u-icon-v1 u-icon-size--sm g-color-gray-dark-v5 g-color-primary--hover g-font-size-15 rounded-circle" href="#!" data-toggle="tooltip" data-placement="top" title="Add to Wishlist">
-                        <i class="icon-medical-022 u-line-icon-pro"></i>
-                      </a>
-                    </li>
-                  </ul>
-                  <!-- End Products Icons -->
-                </div>
-                <!-- End Product -->
-              </div>
-
-              <div class="col-6 col-lg-4 g-mb-30">
-                <!-- Product -->
-                <figure class="g-pos-rel g-mb-20">
-                  <img class="img-fluid" src="<?php echo $data['asset'] ?>/unify/img-temp/480x700/img6.jpg" alt="Image Description">
-                </figure>
-
-                <div class="media">
-                  <!-- Product Info -->
-                  <div class="d-flex flex-column">
-                    <h4 class="h6 g-color-black mb-1">
-                      <a class="u-link-v5 g-color-black g-color-primary--hover" href="#!">
-                        Waterproof jacket
-                      </a>
-                    </h4>
-                    <a class="d-inline-block g-color-gray-dark-v5 g-font-size-13" href="#!">Woman</a>
-                    <span class="d-block g-color-black g-font-size-17">$105.99</span>
-                  </div>
-                  <!-- End Product Info -->
-
-                  <!-- Products Icons -->
-                  <ul class="list-inline media-body text-right">
-                    <li class="list-inline-item align-middle mx-0">
-                      <a class="u-icon-v1 u-icon-size--sm g-color-gray-dark-v5 g-color-primary--hover g-font-size-15 rounded-circle" href="#!" data-toggle="tooltip" data-placement="top" title="Add to Cart">
-                        <i class="icon-finance-100 u-line-icon-pro"></i>
-                      </a>
-                    </li>
-                    <li class="list-inline-item align-middle mx-0">
-                      <a class="u-icon-v1 u-icon-size--sm g-color-gray-dark-v5 g-color-primary--hover g-font-size-15 rounded-circle" href="#!" data-toggle="tooltip" data-placement="top" title="Add to Wishlist">
-                        <i class="icon-medical-022 u-line-icon-pro"></i>
-                      </a>
-                    </li>
-                  </ul>
-                  <!-- End Products Icons -->
-                </div>
-                <!-- End Product -->
-              </div>
-
-              <div class="col-6 col-lg-4 g-mb-30">
-                <!-- Product -->
-                <figure class="g-pos-rel g-mb-20">
-                  <img class="img-fluid" src="<?php echo $data['asset'] ?>/unify/img-temp/480x700/img7.jpg" alt="Image Description">
-
-                  <span class="u-ribbon-v1 g-width-40 g-height-40 g-color-white g-bg-primary g-font-size-13 text-center text-uppercase g-rounded-50x g-top-10 g-right-minus-10 g-px-2 g-py-10">-40%</span>
-
-                  <figcaption class="w-100 g-bg-primary g-bg-black--hover text-center g-pos-abs g-bottom-0 g-transition-0_2 g-py-5">
-                    <a class="g-color-white g-font-size-11 text-uppercase g-letter-spacing-1 g-text-underline--none--hover" href="#!">New Arrival</a>
-                  </figcaption>
-                </figure>
-
-                <div class="media">
-                  <!-- Product Info -->
-                  <div class="d-flex flex-column">
-                    <h4 class="h6 g-color-black mb-1">
-                      <a class="u-link-v5 g-color-black g-color-primary--hover" href="#!">
-                        Classic T-shirt
-                      </a>
-                    </h4>
-                    <a class="d-inline-block g-color-gray-dark-v5 g-font-size-13" href="#!">Man</a>
-                    <span class="d-block g-color-black g-font-size-17">$11.00</span>
-                  </div>
-                  <!-- End Product Info -->
-
-                  <!-- Products Icons -->
-                  <ul class="list-inline media-body text-right">
-                    <li class="list-inline-item align-middle mx-0">
-                      <a class="u-icon-v1 u-icon-size--sm g-color-gray-dark-v5 g-color-primary--hover g-font-size-15 rounded-circle" href="#!" data-toggle="tooltip" data-placement="top" title="Add to Cart">
-                        <i class="icon-finance-100 u-line-icon-pro"></i>
-                      </a>
-                    </li>
-                    <li class="list-inline-item align-middle mx-0">
-                      <a class="u-icon-v1 u-icon-size--sm g-color-gray-dark-v5 g-color-primary--hover g-font-size-15 rounded-circle" href="#!" data-toggle="tooltip" data-placement="top" title="Add to Wishlist">
-                        <i class="icon-medical-022 u-line-icon-pro"></i>
-                      </a>
-                    </li>
-                  </ul>
-                  <!-- End Products Icons -->
-                </div>
-                <!-- End Product -->
-              </div>
-
-              <div class="col-6 col-lg-4 g-mb-30">
-                <!-- Product -->
-                <figure class="g-pos-rel g-mb-20">
-                  <img class="img-fluid" src="<?php echo $data['asset'] ?>/unify/img-temp/480x700/img8.jpg" alt="Image Description">
-                </figure>
-
-                <div class="media">
-                  <!-- Product Info -->
-                  <div class="d-flex flex-column">
-                    <h4 class="h6 g-color-black mb-1">
-                      <a class="u-link-v5 g-color-black g-color-primary--hover" href="#!">
-                        Blue skirt
-                      </a>
-                    </h4>
-                    <a class="d-inline-block g-color-gray-dark-v5 g-font-size-13" href="#!">Woman</a>
-                    <span class="d-block g-color-black g-font-size-17">$34.00</span>
-                  </div>
-                  <!-- End Product Info -->
-
-                  <!-- Products Icons -->
-                  <ul class="list-inline media-body text-right">
-                    <li class="list-inline-item align-middle mx-0">
-                      <a class="u-icon-v1 u-icon-size--sm g-color-gray-dark-v5 g-color-primary--hover g-font-size-15 rounded-circle" href="#!" data-toggle="tooltip" data-placement="top" title="Add to Cart">
-                        <i class="icon-finance-100 u-line-icon-pro"></i>
-                      </a>
-                    </li>
-                    <li class="list-inline-item align-middle mx-0">
-                      <a class="u-icon-v1 u-icon-size--sm g-color-gray-dark-v5 g-color-primary--hover g-font-size-15 rounded-circle" href="#!" data-toggle="tooltip" data-placement="top" title="Add to Wishlist">
-                        <i class="icon-medical-022 u-line-icon-pro"></i>
-                      </a>
-                    </li>
-                  </ul>
-                  <!-- End Products Icons -->
-                </div>
-                <!-- End Product -->
-              </div>
-
-              <div class="col-6 col-lg-4 g-mb-30">
-                <!-- Product -->
-                <figure class="g-pos-rel g-mb-20">
-                  <img class="img-fluid" src="<?php echo $data['asset'] ?>/unify/img-temp/480x700/img9.jpg" alt="Image Description">
-                </figure>
-
-                <div class="media">
-                  <!-- Product Info -->
-                  <div class="d-flex flex-column">
-                    <h4 class="h6 g-color-black mb-1">
-                      <a class="u-link-v5 g-color-black g-color-primary--hover" href="#!">
-                        Cotton workwear
-                      </a>
-                    </h4>
-                    <a class="d-inline-block g-color-gray-dark-v5 g-font-size-13" href="#!">Man</a>
-                    <span class="d-block g-color-black g-font-size-17">$11.00</span>
-                  </div>
-                  <!-- End Product Info -->
-
-                  <!-- Products Icons -->
-                  <ul class="list-inline media-body text-right">
-                    <li class="list-inline-item align-middle mx-0">
-                      <a class="u-icon-v1 u-icon-size--sm g-color-gray-dark-v5 g-color-primary--hover g-font-size-15 rounded-circle" href="#!" data-toggle="tooltip" data-placement="top" title="Add to Cart">
-                        <i class="icon-finance-100 u-line-icon-pro"></i>
-                      </a>
-                    </li>
-                    <li class="list-inline-item align-middle mx-0">
-                      <a class="u-icon-v1 u-icon-size--sm g-color-gray-dark-v5 g-color-primary--hover g-font-size-15 rounded-circle" href="#!" data-toggle="tooltip" data-placement="top" title="Add to Wishlist">
-                        <i class="icon-medical-022 u-line-icon-pro"></i>
-                      </a>
-                    </li>
-                  </ul>
-                  <!-- End Products Icons -->
-                </div>
-                <!-- End Product -->
-              </div>
+              <?php
+                }
+              }
+              ?>
             </div>
             <!-- End Products -->
 
@@ -656,21 +257,18 @@
             <!-- Pagination -->
             <nav class="g-mb-100" aria-label="Page Navigation">
               <ul class="list-inline mb-0">
-                <li class="list-inline-item hidden-down">
-                  <a class="active u-pagination-v1__item g-width-30 g-height-30 g-brd-gray-light-v3 g-brd-primary--active g-color-white g-bg-primary--active g-font-size-12 rounded-circle g-pa-5" href="#!">1</a>
-                </li>
-                <li class="list-inline-item hidden-down">
-                  <a class="u-pagination-v1__item g-width-30 g-height-30 g-color-gray-dark-v5 g-color-primary--hover g-font-size-12 rounded-circle g-pa-5" href="#!">2</a>
-                </li>
-                <li class="list-inline-item g-hidden-xs-down">
-                  <a class="u-pagination-v1__item g-width-30 g-height-30 g-color-gray-dark-v5 g-color-primary--hover g-font-size-12 rounded-circle g-pa-5" href="#!">3</a>
-                </li>
-                <li class="list-inline-item hidden-down">
-                  <span class="g-width-30 g-height-30 g-color-gray-dark-v5 g-font-size-12 rounded-circle g-pa-5">...</span>
-                </li>
-                <li class="list-inline-item g-hidden-xs-down">
-                  <a class="u-pagination-v1__item g-width-30 g-height-30 g-color-gray-dark-v5 g-color-primary--hover g-font-size-12 rounded-circle g-pa-5" href="#!">15</a>
-                </li>
+                <?php for ($i = 0; $i < $data['item']['total']; $i++) { ?>
+                  <?php if ($i == $data['item']['current']) { ?>
+                    <li class="list-inline-item hidden-down">
+                      <a class="active u-pagination-v1__item g-width-30 g-height-30 g-brd-gray-light-v3 g-brd-primary--active g-color-white g-bg-primary--active g-font-size-12 rounded-circle g-pa-5" href="<?php if($data['index']){echo $data['URLROOT']."/item/index/". $i + 1}else{echo $data['URLROOT']."/item/list/". $i + 1} ?>"><?php echo $i + 1 ?></a>
+                    </li>
+                  <?php } else { ?>
+                    <li class="list-inline-item hidden-down">
+                      <a class="u-pagination-v1__item g-width-30 g-height-30 g-color-gray-dark-v5 g-color-primary--hover g-font-size-12 rounded-circle g-pa-5" href="<?php if($data['index']){echo $data['URLROOT']."/item/index/". $i + 1}else{echo $data['URLROOT']."/item/list/". $i + 1} ?>"><?php echo $i + 1 ?></a>
+                    </li>
+                  <?php } ?>
+                <?php } ?>
+
                 <li class="list-inline-item">
                   <a class="u-pagination-v1__item g-width-30 g-height-30 g-brd-gray-light-v3 g-brd-primary--hover g-color-gray-dark-v5 g-color-primary--hover g-font-size-12 rounded-circle g-pa-5 g-ml-15" href="#!" aria-label="Next">
                     <span aria-hidden="true">
@@ -680,8 +278,8 @@
                   </a>
                 </li>
                 <li class="list-inline-item float-right">
-                  <span class="u-pagination-v1__item-info g-color-gray-dark-v4 g-font-size-12 g-pa-5">Page 1 of
-                    15</span>
+                  <span class="u-pagination-v1__item-info g-color-gray-dark-v4 g-font-size-12 g-pa-5">Page <?php echo $data['item']['current'] + 1 ?> of
+                    <?php echo $data['item']['total'] ?></span>
                 </li>
               </ul>
             </nav>
