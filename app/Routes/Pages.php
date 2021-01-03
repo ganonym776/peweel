@@ -24,7 +24,7 @@ class Pages extends Controller
     public function index()
     {
         $data = [
-            'title' => 'Home page',
+            'title' => 'Bekasan - Pusat jual beli barang bekas',
             'URLROOT' => $this->env("urlroot"),
             'asset' => $this->env("asset"),
             'vendor' => $this->env("vendor"),
@@ -55,6 +55,18 @@ class Pages extends Controller
         ];
 
         $this::view('Help/PusatBantuan', $data);
+    }
+
+    public function list()
+    {
+        $data = [
+            'title' => 'Bekasan - Pusat jual beli barang bekas',
+            'URLROOT' => $this->env("urlroot"),
+            'asset' => $this->env("asset"),
+            'vendor' => $this->env("vendor"),
+        ];
+
+        $this::view('Pages/List', $data);
     }
 
     public function error()

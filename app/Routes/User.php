@@ -49,4 +49,20 @@ class User extends Controller
             header('location:' . $this->env("urlroot") . '/auth/login');
         }
     }
+
+    public function iklan()
+    {
+        if ($_SESSION['r']) {
+
+            $data = [
+                'title' => 'Profil',
+                'URLROOT' => $this->env("urlroot"),
+                'asset' => $this->env("asset"),
+            ];
+
+            $this::view('User/Iklan', $data);
+        } else {
+            header('location:' . $this->env("urlroot") . '/auth/login');
+        }
+    }
 }

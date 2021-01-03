@@ -47,10 +47,12 @@ class Core
         // berfungsi untuk membuat satuan array menjadi paramater/argumen dari sebuah function.
         error_reporting(E_ERROR | E_PARSE);
 
-        if (!call_user_func_array([$this->currentRoute, $this->currentMethod], $this->params)) {
+        if (!is_callable([$this->currentRoute, $this->currentMethod])) {
             $this->currentRoute = '\\Routes\\' . ucwords("Pages");
             // membuat object Route
             $this->currentRoute = new $this->currentRoute();
+            call_user_func_array([$this->currentRoute, $this->currentMethod], $this->params);
+        } else {
             call_user_func_array([$this->currentRoute, $this->currentMethod], $this->params);
         }
     }
