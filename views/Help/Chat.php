@@ -10,10 +10,10 @@
   <link rel="stylesheet" href="<?php echo $data['asset'] ?>/css/style.css">
 </head>
 
-<body class="pusat-bantuan">
+<body class="HelpChat">
   <!-- navbar-->
   <nav class="navbar navbar-expand-lg navbar-light bg-light bg-transparent navbar-fixed-top">
-    <nav class="container">
+    <div class="container">
       <a class="navbar-brand align-self-center" href="<?php echo $data['URLROOT'] ?>">
         <img src="<?php echo $data['asset'] ?>/img/img5.png" alt="Logo Bekasan">
       </a>
@@ -30,67 +30,45 @@
           </li>
         </ul>
       </div>
-    </nav>
+    </div>
   </nav>
   <!--end navbar -->
 
   <!-- header -->
   <header>
-    <img class="img-head" width="500px" src="<?php echo $data['asset'] ?>/img/img11.jpg">
     <div class="container col-8 col-md-8 col-lg-6">
-      <h1 class="text-center">Butuh bantuan?</h1>
+      <h1 class="text-center">Pusat Bantuan</h1>
     </div>
   </header>
   <!-- end header -->
 
   <main>
     <div class="container">
-      <h2>Isu yang paling dicari :</h2>
-      <br>
-      <section class="mb-5">
-        <div class="row">
-          <div class="col-sm-6">
-            <div class="card">
-              <div class="card-body">
-                <h5 class="card-title">Bagaimana cara pasang iklan?</h5>
-                <p class="card-text">Kini pasang iklan di <b>Bekasan</b> sangat mudah dan cepat, berikut ini langkah pasang iklan di <b>Bekasan</b> yang Anda dapat ikuti:</p>
-                <a href="<?php echo $data['URLROOT'] ?>/helps/iklan" class="btn btn-primary">Selengkapnya</a>
-              </div>
-            </div>
+      <div class="row">
+        <div class="col-9">
+          <div class="text-center mb-4">
+            <h1>Apa kegunaan fitur chat ?</h1>
           </div>
-          <div class="col-sm-6">
-            <div class="card">
-              <div class="card-body">
-                <h5 class="card-title">Apa kegunaan fitur chat?</h5>
-                <p class="card-text">Untuk meningkatkan transaksi yang menguntungkan untuk penjual dan pembeli, Bekasan menghadirkan fitur chat.</p>
-                <a href="<?php echo $data['URLROOT'] ?>/helps/chat" class="btn btn-primary">Selengkapnya</a>
-              </div>
-            </div>
+          <p>Fitur Chat adalah media berkirim pesan di Bekasan yang memungkinkan calon pembeli dan penjual untuk berkomunikasi secara langsung. Bagi calon pembeli, mereka dapat bertanya langsung kepada penjual terkait informasi dari barang yang ingin dibeli, sedangkan bagi penjual, fitur ini akan sangat membantu dalam meningkatkan kesan fast response kepada calon pembeli serta meningkatkan kepercayaan calon pembeli untuk membeli barang yang dijual.
+          </p>
+          <p>Berikut adalah Cara Menggunakan Fitur Chat di Bekasan:</p>
+          <ol>
+            <li>Login di Bekasan.</li>
+            <li>Klik ikon Chat pada halaman produk atau klik Chat pada profil pengguna.</li>
+          </ol>
+        </div>
+        <div class="col-3">
+          <div class="card">
+            <h5 class="text-center mt-3">Isu yang Paling Dicari :</h5>
+            <ul>
+              <li><a href="<?php echo $data['URLROOT'] ?>/helps/iklan">Bagaimana cara memasang iklan di Bekasan ?</a></li>
+              <li><a href="<?php echo $data['URLROOT'] ?>/helps/cari">Bagaimana cara mencari barang di Bekasan ?</a></li>
+              <li><a href="<?php echo $data['URLROOT'] ?>/helps/penipu">Bagaimana cara mengetahui penipuan ?</a></li>
+            </ul>
           </div>
         </div>
-      </section>
-      <section>
-        <div class="row mb-5">
-          <div class="col-sm-6">
-            <div class="card">
-              <div class="card-body">
-                <h5 class="card-title">Bagaimana cara mencari barang di Bekasan?</h5>
-                <p class="card-text"> Bekasan telah mencoba membuat fitur pencarian menjadi lebih sederhana, nyaman & mudah digunakan.</p>
-                <a href="<?php echo $data['URLROOT'] ?>/helps/cari" class="btn btn-primary">Selengkapnya</a>
-              </div>
-            </div>
-          </div>
-          <div class="col-sm-6">
-            <div class="card">
-              <div class="card-body">
-                <h5 class="card-title">Bagaimana cara mengetahui penipuan?</h5>
-                <p class="card-text">Berikut ini adalah beberapa ciri/karakteristik dari iklan berbahaya/penjual nakal yang perlu dihindari :</p>
-                <a href="<?php echo $data['URLROOT'] ?>/helps/penipu" class="btn btn-primary">Selengkapnya</a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+
+      </div>
     </div>
   </main>
   <footer class="mt-5 mb-4 border-top">
@@ -133,7 +111,6 @@
       </div>
     </div>
   </footer>
-
 
   <script src="<?php echo $data['asset'] ?>/js/jquery-3.5.1.min.js"></script>
   <script src="<?php echo $data['asset'] ?>/js/bootstrap.js"></script>

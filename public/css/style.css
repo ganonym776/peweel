@@ -255,3 +255,114 @@ body {
   border-radius: 0;
 }
 /* ======= End Home ======= */
+/* ======= Start Cari Barang ======= */
+.CariBarang body {
+  background-color: #ffffff;
+  font-family: "Nunito", sans-serif;
+}
+
+/* navbar */
+.CariBarang .navbar {
+  background-color: #ffffff;
+}
+
+.CariBarang .navbar-brand img {
+  max-height: 40px;
+}
+
+.CariBarang .btn-navbar-right {
+  margin-top: -10px !important;
+  margin-bottom: -8px !important;
+  margin-right: -18px !important;
+
+  height: 70px;
+  border-radius: 0;
+}
+
+/* header */
+.CariBarang header {
+  padding: 200px 0px 50px;
+  background-image: url("../img/img8.jpg");
+  background-size: cover;
+  background-position: center;
+  margin-bottom: 100px;
+}
+
+.CariBarang header h1 {
+  color: #ffffff;
+}
+/* ======= End Cari Barang ======= */
+/* ======= Start Help Chat ======= */
+.HelpChat body {
+  background-color: #ffffff;
+  font-family: "Nunito", sans-serif;
+}
+
+/* navbar */
+.HelpChat .navbar {
+  background-color: #ffffff;
+}
+
+.HelpChat .navbar-brand img {
+  max-height: 40px;
+}
+
+.HelpChat .btn-navbar-right {
+  margin-top: -10px !important;
+  margin-bottom: -8px !important;
+  margin-right: -18px !important;
+
+  height: 70px;
+  border-radius: 0;
+}
+
+/* header */
+.HelpChat header {
+  padding: 200px 0px 50px;
+  background-image: url("../img/img8.jpg");
+  background-size: cover;
+  background-position: center;
+  margin-bottom: 100px;
+}
+
+.HelpChat header h1 {
+  color: #ffffff;
+}
+/* ======= End Help Chat ======= */
+/* ======= Start Penipuan ======= */
+.Penipuan body {
+  background-color: #ffffff;
+  font-family: "Nunito", sans-serif;
+}
+
+/* navbar */
+.Penipuan .navbar {
+  background-color: #ffffff;
+}
+
+.Penipuan .navbar-brand img {
+  max-height: 40px;
+}
+
+.Penipuan .btn-navbar-right {
+  margin-top: -10px !important;
+  margin-bottom: -8px !important;
+  margin-right: -18px !important;
+
+  height: 70px;
+  border-radius: 0;
+}
+
+/* header */
+.Penipuan header {
+  padding: 200px 0px 50px;
+  background-image: url("../img/img8.jpg");
+  background-size: cover;
+  background-position: center;
+  margin-bottom: 100px;
+}
+
+.Penipuan header h1 {
+  color: #ffffff;
+}
+/* ======= End Penipuan ======= */

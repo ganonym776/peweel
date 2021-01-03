@@ -39,4 +39,37 @@ class Helps extends Controller
 
         $this::view('Help/PasangIklan', $data);
     }
+
+    public function penipu()
+    {
+        $data = [
+            'title' => 'Pusat Bantuan | Penipuan',
+            'URLROOT' => $this->env("urlroot"),
+            'asset' => $this->env("asset"),
+        ];
+
+        $this::view('Help/Penipuan', $data);
+    }
+
+    public function chat()
+    {
+        $data = [
+            'title' => 'Pusat Bantuan | Chat',
+            'URLROOT' => $this->env("urlroot"),
+            'asset' => $this->env("asset"),
+        ];
+
+        $this::view('Help/Chat', $data);
+    }
+
+    public function cari()
+    {
+        $data = [
+            'title' => 'Pusat Bantuan | Cari Barang',
+            'URLROOT' => $this->env("urlroot"),
+            'asset' => $this->env("asset"),
+        ];
+
+        $this::view('Help/CariBarang', $data);
+    }
 }

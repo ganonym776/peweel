@@ -8,13 +8,12 @@
   <link rel="shortcut icon" href="<?php echo $data['asset'] ?>/img/favico.ico" type="image/x-icon">
   <link rel="stylesheet" href="<?php echo $data['asset'] ?>/css/bootstrap.min.css">
   <link rel="stylesheet" href="<?php echo $data['asset'] ?>/css/style.css">
-
 </head>
 
 <body class="pasang-iklan">
   <!-- navbar-->
   <nav class="navbar navbar-expand-lg navbar-light bg-light bg-transparent navbar-fixed-top">
-    <nav class="container">
+    <div class="container">
       <a class="navbar-brand align-self-center" href="<?php echo $data['URLROOT'] ?>">
         <img src="<?php echo $data['asset'] ?>/img/img5.png" alt="Logo Bekasan">
       </a>
@@ -31,7 +30,7 @@
           </li>
         </ul>
       </div>
-    </nav>
+    </div>
   </nav>
   <!--end navbar -->
 
@@ -39,16 +38,6 @@
   <header>
     <div class="container col-8 col-md-8 col-lg-6">
       <h1 class="text-center">Pusat Bantuan</h1>
-      <form>
-        <div class="card-body row no-gutters align-items-center">
-          <div class="col">
-            <input class="form-control form-control-lg form-control-borderless" type="search" placeholder="Cari isu ..">
-          </div>
-          <div class="col-auto">
-            <button class="btn btn-lg btn-primary" type="submit">Search</button>
-          </div>
-        </div>
-      </form>
     </div>
   </header>
   <!-- end header -->
@@ -75,9 +64,9 @@
           <div class="card">
             <h5 class="text-center mt-3">Isu yang Paling Dicari :</h5>
             <ul>
-              <li><a href="sejarah">Bagaimana cara mencari barang di Bekasan ?</a></li>
-              <li><a href="geografis">Apa kegunaan fitur chat ?</a></li>
-              <li><a href="wisata">Bagaimana cara mengetahui penipuan ?</a></li>
+              <li><a href="<?php echo $data['URLROOT'] ?>/helps/cari">Bagaimana cara mencari barang di Bekasan ?</a></li>
+              <li><a href="<?php echo $data['URLROOT'] ?>/helps/chat">Apa kegunaan fitur chat ?</a></li>
+              <li><a href="<?php echo $data['URLROOT'] ?>/helps/penipu">Bagaimana cara mengetahui penipuan ?</a></li>
             </ul>
           </div>
         </div>
@@ -125,7 +114,6 @@
       </div>
     </div>
   </footer>
-
 
   <script src="<?php echo $data['asset'] ?>/js/jquery-3.5.1.min.js"></script>
   <script src="<?php echo $data['asset'] ?>/js/bootstrap.js"></script>
