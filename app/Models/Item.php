@@ -25,15 +25,15 @@ class Item extends Model
         return $result;
     }
 
-    public function findItemByKategori($id_kategori)
+    public function findItemByKategori($nama)
     {
-        $result = $this->db->select("SELECT * FROM item WHERE id_item in (SELECT id_item from item_kategori where id_kategori = " . $id_kategori . ")");
+        $result = $this->db->select("SELECT * FROM item WHERE id_item in (SELECT id_item from item_kategori where id_kategori in (SELECT id_kategori FROM kategori where nama_kategori = '" . $nama . "'))");
         return $result;
     }
 
-    public function findItemByLokasi($lokasi)
+    public function findItemByProvinsi($provinsi)
     {
-        $result = $this->db->select("SELECT * FROM item WHERE id_item in (SELECT id_item from user where address = " . $lokasi . ")");
+        $result = $this->db->select("SELECT * FROM item WHERE id_item in (SELECT id_item from user where provinsi = " . $provinsi . ")");
         return $result;
     }
 }

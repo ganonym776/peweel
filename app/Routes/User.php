@@ -26,7 +26,7 @@ class User extends ControllerUser
                 'asset' => $this->env("asset"),
             ];
 
-            $this::view('User/Dashboard', $data);
+            $this->view('User/Dashboard', $data);
         } else {
             header('location:' . $this->env("urlroot") . '/auth/login');
         }
@@ -42,7 +42,7 @@ class User extends ControllerUser
                 'asset' => $this->env("asset"),
             ];
 
-            $this::view('User/Profil', $data);
+            $this->view('User/Profil', $data);
         } else {
             header('location:' . $this->env("urlroot") . '/auth/login');
         }
@@ -58,9 +58,14 @@ class User extends ControllerUser
                 'asset' => $this->env("asset"),
             ];
 
-            $this::view('User/Iklan', $data);
+            $this->view('Pages/PasangIklan', $data);
         } else {
             header('location:' . $this->env("urlroot") . '/auth/login');
         }
+    }
+
+    public function signOut()
+    {
+        $this->logout();
     }
 }

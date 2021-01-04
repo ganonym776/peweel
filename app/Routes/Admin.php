@@ -26,7 +26,7 @@ class Admin extends Controller
                 'asset' => $this->env("asset"),
             ];
 
-            $this::view('Admin/Dashboard', $data);
+            $this->view('Admin/Dashboard', $data);
         } else {
             header('location:' . $this->env("urlroot") . '/auth/login');
         }

@@ -28,7 +28,7 @@ class Pages extends Controller
             'vendor' => $this->env("vendor"),
         ];
 
-        $this::view('Index', $data);
+        $this->view('Index', $data);
     }
 
     public function aboutus()
@@ -40,7 +40,7 @@ class Pages extends Controller
             'vendor' => $this->env("vendor"),
         ];
 
-        $this::view('Pages/AboutUs', $data);
+        $this->view('Pages/AboutUs', $data);
     }
 
     public function help()
@@ -52,7 +52,7 @@ class Pages extends Controller
             'vendor' => $this->env("vendor"),
         ];
 
-        $this::view('Help/PusatBantuan', $data);
+        $this->view('Help/PusatBantuan', $data);
     }
 
     public function error()
@@ -64,6 +64,6 @@ class Pages extends Controller
             'vendor' => $this->env("vendor"),
         ];
 
-        $this::view('Pages/404', $data);
+        $this->view('Pages/404', $data);
     }
 }

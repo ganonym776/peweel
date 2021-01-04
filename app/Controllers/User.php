@@ -180,9 +180,9 @@ class User extends Controller
         $_SESSION['email'] = $user['email'];
         $_SESSION['r'] = $user['role'];
         if ($_SESSION['r'] === "customer") {
-            header('location:' . $this->urlroot() . '/user/dashboard');
+            header('location:' . $this->urlroot() . '/item/index');
         } else {
-            header('location:' . $this->urlroot() . '/admin/dashboard');
+            header('location:' . $this->urlroot() . '/item/index');
         }
     }
 

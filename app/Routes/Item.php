@@ -38,17 +38,28 @@ class Item extends ControllerItem
                 'item' => $this->ItemController->getAll()
             ];
         } else {
-            $data = [
-                'title' => 'Bekasan - Pusat jual beli barang bekas',
-                'URLROOT' => $this->env("urlroot"),
-                'asset' => $this->env("asset"),
-                'index' => true,
-                'kategori' => $this->KategoriController->getAll(),
-                'item' => $this->ItemController->nextPage($params)
-            ];
+            if (is_string((int) $params) && ((int) $params > 0)) {
+                $data = [
+                    'title' => 'Bekasan - Pusat jual beli barang bekas',
+                    'URLROOT' => $this->env("urlroot"),
+                    'asset' => $this->env("asset"),
+                    'index' => true,
+                    'kategori' => $this->KategoriController->getAll(),
+                    'item' => $this->ItemController->nextPage($params)
+                ];
+            } else {
+                $data = [
+                    'title' => 'Bekasan - Pusat jual beli barang bekas',
+                    'URLROOT' => $this->env("urlroot"),
+                    'asset' => $this->env("asset"),
+                    'index' => true,
+                    'kategori' => $this->KategoriController->getAll(),
+                    'item' => $this->ItemController->getByKategori($params)
+                ];
+            }
         }
 
-        $this::view('Pages/List', $data);
+        $this->view('Pages/List', $data);
     }
 
     public function list()
@@ -59,6 +70,6 @@ class Item extends ControllerItem
             'asset' => $this->env("asset"),
         ];
 
-        $this::view('Pages/List', $data);
+        $this->view('Pages/List', $data);
     }
 }

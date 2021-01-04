@@ -12,7 +12,7 @@ class Controller
     }
 
     // load views (cek file view)
-    public static function view($viewName, $data = [])
+    public function view($viewName, $data = [])
     {
         if (file_exists('../views/' . $viewName . '.php')) {
             require_once '../views/' . $viewName . '.php';

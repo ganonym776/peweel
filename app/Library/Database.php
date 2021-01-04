@@ -9,7 +9,7 @@ class Database extends Env
 {
     private $stmt;
 
-    public static function connect()
+    public function connect()
     {
         // /* mencoba konek ke server MySQL. Dengan asumsi Anda menjalankan MySQL server */
         $mysqli = new mysqli(self::$DB_HOST, self::$DB_USERNAME, self::$DB_PASSWORD, self::$DB_NAME, self::$DB_PORT);
@@ -23,7 +23,7 @@ class Database extends Env
 
     public function select($queryString)
     {
-        $mysqli = $this::connect();
+        $mysqli = $this->connect();
         $this->stmt = $mysqli->prepare($queryString);
         $this->stmt->execute();
         return $this->resultSet();
@@ -32,7 +32,7 @@ class Database extends Env
 
     public function insert($tableName, $data)
     {
-        $mysqli = $this::connect();
+        $mysqli = $this->connect();
         $keyValues = $values = "";
         foreach ($data as $key => $value) {
             $keyValues =  $key . ',' . $keyValues;

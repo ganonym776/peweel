@@ -48,7 +48,7 @@ class Auth extends Controller
                     'asset' => $this->env("asset"),
                 ];
                 $data = array_merge($result, $init);
-                Controller::view('Auth/Login', $data);
+                $this->view('Auth/Login', $data);
             }
         } else {
             $data = [
@@ -57,7 +57,7 @@ class Auth extends Controller
                 'asset' => $this->env("asset"),
                 'email' => ""
             ];
-            Controller::view('Auth/Login', $data);
+            $this->view('Auth/Login', $data);
         }
     }
 
@@ -94,7 +94,7 @@ class Auth extends Controller
                     'asset' => $this->env("asset"),
                 ];
                 $data = array_merge($result, $init);
-                Controller::view('Auth/Register', $data);
+                $this->view('Auth/Register', $data);
             }
         } else {
             $data = [
@@ -110,7 +110,7 @@ class Auth extends Controller
                 'phone_num' => '',
                 'address' => ''
             ];
-            Controller::view('Auth/Register', $data);
+            $this->view('Auth/Register', $data);
         }
     }
 }

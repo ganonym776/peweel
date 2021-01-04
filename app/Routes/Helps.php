@@ -26,7 +26,7 @@ class Helps extends Controller
             'asset' => $this->env("asset"),
         ];
 
-        $this::view('Help/PusatBantuan', $data);
+        $this->view('Help/PusatBantuan', $data);
     }
 
     public function iklan()
@@ -37,7 +37,7 @@ class Helps extends Controller
             'asset' => $this->env("asset"),
         ];
 
-        $this::view('Help/PasangIklan', $data);
+        $this->view('Help/PasangIklan', $data);
     }
 
     public function penipu()
@@ -48,7 +48,7 @@ class Helps extends Controller
             'asset' => $this->env("asset"),
         ];
 
-        $this::view('Help/Penipuan', $data);
+        $this->view('Help/Penipuan', $data);
     }
 
     public function chat()
@@ -59,7 +59,7 @@ class Helps extends Controller
             'asset' => $this->env("asset"),
         ];
 
-        $this::view('Help/Chat', $data);
+        $this->view('Help/Chat', $data);
     }
 
     public function cari()
@@ -70,6 +70,6 @@ class Helps extends Controller
             'asset' => $this->env("asset"),
         ];
 
-        $this::view('Help/CariBarang', $data);
+        $this->view('Help/CariBarang', $data);
     }
 }

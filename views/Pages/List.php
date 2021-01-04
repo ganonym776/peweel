@@ -85,7 +85,11 @@
                 </li>
 
                 <li class="list-inline-item">
-                  <a class="u-link-v5 g-color-main g-color-white--hover g-bg-secondary g-bg-primary-dark-v1--hover g-font-weight-500 g-px-15 g-py-10" href="<?php echo $data['URLROOT'] ?>/auth/login">Login</a>
+                  <?php if (!$_SESSION['username']) { ?>
+                    <a class="u-link-v5 g-color-main g-color-white--hover g-bg-secondary g-bg-primary-dark-v1--hover g-font-weight-500 g-px-15 g-py-10" href="<?php echo $data['URLROOT'] ?>/auth/login">Login</a>
+                  <?php } else { ?>
+                    <a class="u-link-v5 g-color-main g-color-white--hover g-bg-secondary g-bg-primary-dark-v1--hover g-font-weight-500 g-px-15 g-py-10" href="<?php echo $data['URLROOT'] ?>/user/logout">Logout</a>
+                  <?php } ?>
                 </li>
                 <li class="list-inline-item">
                   <a class="u-link-v5 g-color-white g-bg-primary g-bg-primary-dark-v1--hover g-font-weight-500 g-px-15 g-py-10" href="<?php echo $data['URLROOT'] ?>/user/iklan">Pasang Iklan</a>
@@ -156,12 +160,16 @@
           foreach ($data['kategori'] as $key => $value) {
           ?>
             <div class="js-slide d-flex flex-column align-items-center">
-              <a class="u-block-hover" href="#">
+              <a class="u-block-hover" href="<?php if ($data['index']) {
+                                                echo $data['URLROOT'] . "/item/index/" . $value["nama_kategori"];
+                                              } else {
+                                                echo $data['URLROOT'] . "/item/list/" . $value["nama_kategori"];
+                                              } ?>">
                 <span class="d-block u-block-hover u-bg-overlay g-bg-primary-opacity-0_3--hover--after g-transition-0_3 mb-3">
-                  <img class="img-fluid" src="<?php echo $data['asset'] ?>/img/<?php echo $value['icon'] ?>" alt="<?php echo $value['nama_kategori'] ?>" width="90">
+                  <img class="img-fluid" src="<?php echo $data['asset']; ?>/img/<?php echo $value['icon']; ?>" alt="<?php echo $value['nama_kategori']; ?>" width="90">
                 </span>
               </a>
-              <h3 class="h6 mb-0"><?php echo $value['nama_kategori'] ?></h3>
+              <h3 class="h6 mb-0"><?php echo $value['nama_kategori']; ?></h3>
             </div>
           <?php
           }
@@ -217,7 +225,6 @@
               <!-- End Sort By -->
             </div>
             <!-- End Filters -->
-
             <!-- Products -->
             <div class="row g-pt-30 g-mb-50">
               <?php
@@ -258,28 +265,37 @@
             <nav class="g-mb-100" aria-label="Page Navigation">
               <ul class="list-inline mb-0">
                 <?php for ($i = 0; $i < $data['item']['total']; $i++) { ?>
-                  <?php if ($i == $data['item']['current']) { ?>
+                  <?php if (($i + 1) == $data['item']['current']) { ?>
                     <li class="list-inline-item hidden-down">
-                      <a class="active u-pagination-v1__item g-width-30 g-height-30 g-brd-gray-light-v3 g-brd-primary--active g-color-white g-bg-primary--active g-font-size-12 rounded-circle g-pa-5" href="<?php if($data['index']){echo $data['URLROOT']."/item/index/". $i + 1}else{echo $data['URLROOT']."/item/list/". $i + 1} ?>"><?php echo $i + 1 ?></a>
+                      <a class="active u-pagination-v1__item g-width-30 g-height-30 g-brd-gray-light-v3 g-brd-primary--active g-color-white g-bg-primary--active g-font-size-12 rounded-circle g-pa-5" href="<?php if ($data['index']) {
+                                                                                                                                                                                                                echo $data['URLROOT'] . "/item/index/" . ($i + 1);
+                                                                                                                                                                                                              } else {
+                                                                                                                                                                                                                echo $data['URLROOT'] . "/item/list/" . ($i + 1);
+                                                                                                                                                                                                              } ?>"><?php echo $i + 1; ?></a>
                     </li>
                   <?php } else { ?>
                     <li class="list-inline-item hidden-down">
-                      <a class="u-pagination-v1__item g-width-30 g-height-30 g-color-gray-dark-v5 g-color-primary--hover g-font-size-12 rounded-circle g-pa-5" href="<?php if($data['index']){echo $data['URLROOT']."/item/index/". $i + 1}else{echo $data['URLROOT']."/item/list/". $i + 1} ?>"><?php echo $i + 1 ?></a>
+                      <a class="u-pagination-v1__item g-width-30 g-height-30 g-color-gray-dark-v5 g-color-primary--hover g-font-size-12 rounded-circle g-pa-5" href="<?php if ($data['index']) {
+                                                                                                                                                                        echo $data['URLROOT'] . "/item/index/" . ($i + 1);
+                                                                                                                                                                      } else {
+                                                                                                                                                                        echo $data['URLROOT'] . "/item/list/" . ($i + 1);
+                                                                                                                                                                      } ?>"><?php echo $i + 1; ?></a>
                     </li>
-                  <?php } ?>
+                <?php }
+                }  ?>
+                <?php if ($data['item']['total'] != $data['item']['current']) { ?>
+                  <li class="list-inline-item">
+                    <a class="u-pagination-v1__item g-width-30 g-height-30 g-brd-gray-light-v3 g-brd-primary--hover g-color-gray-dark-v5 g-color-primary--hover g-font-size-12 rounded-circle g-pa-5 g-ml-15" href="#!" aria-label="Next">
+                      <span aria-hidden="true">
+                        <i class="fa fa-angle-right"></i>
+                      </span>
+                      <span class="sr-only">Next</span>
+                    </a>
+                  </li>
                 <?php } ?>
-
-                <li class="list-inline-item">
-                  <a class="u-pagination-v1__item g-width-30 g-height-30 g-brd-gray-light-v3 g-brd-primary--hover g-color-gray-dark-v5 g-color-primary--hover g-font-size-12 rounded-circle g-pa-5 g-ml-15" href="#!" aria-label="Next">
-                    <span aria-hidden="true">
-                      <i class="fa fa-angle-right"></i>
-                    </span>
-                    <span class="sr-only">Next</span>
-                  </a>
-                </li>
                 <li class="list-inline-item float-right">
-                  <span class="u-pagination-v1__item-info g-color-gray-dark-v4 g-font-size-12 g-pa-5">Page <?php echo $data['item']['current'] + 1 ?> of
-                    <?php echo $data['item']['total'] ?></span>
+                  <span class="u-pagination-v1__item-info g-color-gray-dark-v4 g-font-size-12 g-pa-5">Page <?php echo $data['item']['current']; ?> of
+                    <?php echo $data['item']['total']; ?></span>
                 </li>
               </ul>
             </nav>
@@ -296,46 +312,15 @@
               <h3 class="h5 mb-3">Categories</h3>
 
               <ul class="list-unstyled">
-                <li class="my-3">
-                  <a class="d-block u-link-v5 g-color-gray-dark-v4 g-color-primary--hover" href="#!">Clothes
-                    <span class="float-right g-font-size-12">202</span></a>
-                </li>
-                <li class="my-3">
-                  <a class="d-block u-link-v5 g-color-gray-dark-v4 g-color-primary--hover" href="#!">T-shirts
-                    <span class="float-right g-font-size-12">44</span></a>
-                </li>
-                <li class="my-3">
-                  <a class="d-block u-link-v5 g-color-gray-dark-v4 g-color-primary--hover" href="#!">Shirts
-                    <span class="float-right g-font-size-12">398</span></a>
-                </li>
-                <li class="my-3">
-                  <a class="d-block u-link-v5 g-color-gray-dark-v4 g-color-primary--hover" href="#!">Shorts
-                    <span class="float-right g-font-size-12">56</span></a>
-                </li>
-                <li class="my-3">
-                  <a class="d-block u-link-v5 g-color-gray-dark-v4 g-color-primary--hover" href="#!">Jackets
-                    <span class="float-right g-font-size-12">71</span></a>
-                </li>
-                <li class="my-3">
-                  <a class="d-block u-link-v5 g-color-gray-dark-v4 g-color-primary--hover" href="#!">Shoes
-                    <span class="float-right g-font-size-12">943</span></a>
-                </li>
-                <li class="my-3">
-                  <a class="d-block u-link-v5 g-color-gray-dark-v4 g-color-primary--hover" href="#!">Glasses
-                    <span class="float-right g-font-size-12">109</span></a>
-                </li>
-                <li class="my-3">
-                  <a class="d-block u-link-v5 g-color-gray-dark-v4 g-color-primary--hover" href="#!">Classic
-                    <span class="float-right g-font-size-12">88</span></a>
-                </li>
-                <li class="my-3">
-                  <a class="d-block u-link-v5 g-color-gray-dark-v4 g-color-primary--hover" href="#!">Trending
-                    <span class="float-right g-font-size-12">111</span></a>
-                </li>
-                <li class="my-3">
-                  <a class="d-block u-link-v5 g-color-gray-dark-v4 g-color-primary--hover" href="#!">Accessories
-                    <span class="float-right g-font-size-12">5</span></a>
-                </li>
+                <?php foreach ($data['kategori'] as $key => $value) { ?>
+                  <li class="my-3">
+                    <a class="d-block u-link-v5 g-color-gray-dark-v4 g-color-primary--hover" href="<?php if ($data['index']) {
+                                                                                                      echo $data['URLROOT'] . "/item/index/" . $value["nama_kategori"];
+                                                                                                    } else {
+                                                                                                      echo $data['URLROOT'] . "/item/list/" . $value["nama_kategori"];
+                                                                                                    } ?>"><?php echo $value["nama_kategori"]; ?></a>
+                  </li>
+                <?php } ?>
               </ul>
             </div>
             <!-- End Categories -->
@@ -354,125 +339,6 @@
             <!-- End Pricing -->
 
             <hr>
-
-            <!-- Brand -->
-            <div class="g-mb-30">
-              <h3 class="h5 mb-3">Brand</h3>
-
-              <ul class="list-unstyled">
-                <li class="my-2">
-                  <label class="form-check-inline u-check d-block u-link-v5 g-color-gray-dark-v4 g-color-primary--hover g-pl-30">
-                    <input class="g-hidden-xs-up g-pos-abs g-top-0 g-left-0" type="checkbox">
-                    <span class="d-block u-check-icon-checkbox-v4 g-absolute-centered--y g-left-0">
-                      <i class="fa" data-check-icon="&#xf00c"></i>
-                    </span>
-                    Mango <span class="float-right g-font-size-13">24</span>
-                  </label>
-                </li>
-                <li class="my-2">
-                  <label class="form-check-inline u-check d-block u-link-v5 g-color-gray-dark-v4 g-color-primary--hover g-pl-30">
-                    <input class="g-hidden-xs-up g-pos-abs g-top-0 g-left-0" type="checkbox" checked>
-                    <span class="d-block u-check-icon-checkbox-v4 g-absolute-centered--y g-left-0">
-                      <i class="fa" data-check-icon="&#xf00c"></i>
-                    </span>
-                    Gucci <span class="float-right g-font-size-13">334</span>
-                  </label>
-                </li>
-                <li class="my-2">
-                  <label class="form-check-inline u-check d-block u-link-v5 g-color-gray-dark-v4 g-color-primary--hover g-pl-30">
-                    <input class="g-hidden-xs-up g-pos-abs g-top-0 g-left-0" type="checkbox">
-                    <span class="d-block u-check-icon-checkbox-v4 g-absolute-centered--y g-left-0">
-                      <i class="fa" data-check-icon="&#xf00c"></i>
-                    </span>
-                    Adidas <span class="float-right g-font-size-13">18</span>
-                  </label>
-                </li>
-                <li class="my-2">
-                  <label class="form-check-inline u-check d-block u-link-v5 g-color-gray-dark-v4 g-color-primary--hover g-pl-30">
-                    <input class="g-hidden-xs-up g-pos-abs g-top-0 g-left-0" type="checkbox" checked>
-                    <span class="d-block u-check-icon-checkbox-v4 g-absolute-centered--y g-left-0">
-                      <i class="fa" data-check-icon="&#xf00c"></i>
-                    </span>
-                    Nike <span class="float-right g-font-size-13">6</span>
-                  </label>
-                </li>
-                <li class="my-2">
-                  <label class="form-check-inline u-check d-block u-link-v5 g-color-gray-dark-v4 g-color-primary--hover g-pl-30">
-                    <input class="g-hidden-xs-up g-pos-abs g-top-0 g-left-0" type="checkbox">
-                    <span class="d-block u-check-icon-checkbox-v4 g-absolute-centered--y g-left-0">
-                      <i class="fa" data-check-icon="&#xf00c"></i>
-                    </span>
-                    Puma <span class="float-right g-font-size-13">71</span>
-                  </label>
-                </li>
-                <li class="my-2">
-                  <label class="form-check-inline u-check d-block u-link-v5 g-color-gray-dark-v4 g-color-primary--hover g-pl-30">
-                    <input class="g-hidden-xs-up g-pos-abs g-top-0 g-left-0" type="checkbox">
-                    <span class="d-block u-check-icon-checkbox-v4 g-absolute-centered--y g-left-0">
-                      <i class="fa" data-check-icon="&#xf00c"></i>
-                    </span>
-                    Zara <span class="float-right g-font-size-13">9</span>
-                  </label>
-                </li>
-              </ul>
-            </div>
-            <!-- End Brand -->
-
-            <hr>
-
-            <!-- Size -->
-            <div class="g-mb-30">
-              <h3 class="h5 mb-3">Size</h3>
-
-              <ul class="list-unstyled">
-                <li class="my-2">
-                  <label class="form-check-inline u-check d-block u-link-v5 g-color-gray-dark-v4 g-color-primary--hover g-pl-30">
-                    <input class="g-hidden-xs-up g-pos-abs g-top-0 g-left-0" type="checkbox">
-                    <span class="d-block u-check-icon-checkbox-v4 g-absolute-centered--y g-left-0">
-                      <i class="fa" data-check-icon="&#xf00c"></i>
-                    </span>
-                    S <span class="float-right g-font-size-13">24</span>
-                  </label>
-                </li>
-                <li class="my-2">
-                  <label class="form-check-inline u-check d-block u-link-v5 g-color-gray-dark-v4 g-color-primary--hover g-pl-30">
-                    <input class="g-hidden-xs-up g-pos-abs g-top-0 g-left-0" type="checkbox" checked>
-                    <span class="d-block u-check-icon-checkbox-v4 g-absolute-centered--y g-left-0">
-                      <i class="fa" data-check-icon="&#xf00c"></i>
-                    </span>
-                    M <span class="float-right g-font-size-13">334</span>
-                  </label>
-                </li>
-                <li class="my-2">
-                  <label class="form-check-inline u-check d-block u-link-v5 g-color-gray-dark-v4 g-color-primary--hover g-pl-30">
-                    <input class="g-hidden-xs-up g-pos-abs g-top-0 g-left-0" type="checkbox">
-                    <span class="d-block u-check-icon-checkbox-v4 g-absolute-centered--y g-left-0">
-                      <i class="fa" data-check-icon="&#xf00c"></i>
-                    </span>
-                    L <span class="float-right g-font-size-13">18</span>
-                  </label>
-                </li>
-                <li class="my-2">
-                  <label class="form-check-inline u-check d-block u-link-v5 g-color-gray-dark-v4 g-color-primary--hover g-pl-30">
-                    <input class="g-hidden-xs-up g-pos-abs g-top-0 g-left-0" type="checkbox">
-                    <span class="d-block u-check-icon-checkbox-v4 g-absolute-centered--y g-left-0">
-                      <i class="fa" data-check-icon="&#xf00c"></i>
-                    </span>
-                    XL <span class="float-right g-font-size-13">6</span>
-                  </label>
-                </li>
-                <li class="my-2">
-                  <label class="form-check-inline u-check d-block u-link-v5 g-color-gray-dark-v4 g-color-primary--hover g-pl-30">
-                    <input class="g-hidden-xs-up g-pos-abs g-top-0 g-left-0" type="checkbox">
-                    <span class="d-block u-check-icon-checkbox-v4 g-absolute-centered--y g-left-0">
-                      <i class="fa" data-check-icon="&#xf00c"></i>
-                    </span>
-                    XXL <span class="float-right g-font-size-13">71</span>
-                  </label>
-                </li>
-              </ul>
-            </div>
-            <!-- End Size -->
 
             <hr>
 
@@ -512,260 +378,48 @@
 
     <hr class="g-brd-gray-light-v4">
 
-    <!-- Call to Action -->
-    <div class="g-bg-primary">
-      <div class="container g-py-20">
-        <div class="row justify-content-center">
-          <div class="col-md-4 mx-auto g-py-20">
-            <!-- Media -->
-            <div class="media g-px-50--lg">
-              <i class="d-flex g-color-white g-font-size-40 g-pos-rel g-top-3 mr-4 icon-real-estate-048 u-line-icon-pro"></i>
-              <div class="media-body">
-                <span class="d-block g-color-white g-font-weight-500 g-font-size-17 text-uppercase">Free Shipping</span>
-                <span class="d-block g-color-white-opacity-0_8">In 2-3 Days</span>
-              </div>
-            </div>
-            <!-- End Media -->
-          </div>
-
-          <div class="col-md-4 mx-auto g-brd-x--md g-brd-white-opacity-0_3 g-py-20">
-            <!-- Media -->
-            <div class="media g-px-50--lg">
-              <i class="d-flex g-color-white g-font-size-40 g-pos-rel g-top-3 mr-4 icon-real-estate-040 u-line-icon-pro"></i>
-              <div class="media-body">
-                <span class="d-block g-color-white g-font-weight-500 g-font-size-17 text-uppercase">Free Returns</span>
-                <span class="d-block g-color-white-opacity-0_8">No Questions Asked</span>
-              </div>
-            </div>
-            <!-- End Media -->
-          </div>
-
-          <div class="col-md-4 mx-auto g-py-20">
-            <!-- Media -->
-            <div class="media g-px-50--lg">
-              <i class="d-flex g-color-white g-font-size-40 g-pos-rel g-top-3 mr-4 icon-hotel-restaurant-062 u-line-icon-pro"></i>
-              <div class="media-body text-left">
-                <span class="d-block g-color-white g-font-weight-500 g-font-size-17 text-uppercase">Free 24</span>
-                <span class="d-block g-color-white-opacity-0_8">Days Storage</span>
-              </div>
-            </div>
-            <!-- End Media -->
-          </div>
-        </div>
-      </div>
-    </div>
-    <!-- End Call to Action -->
   </main>
 
   <!-- Footer -->
-  <footer class="g-bg-darkbrown g-bg-main-dark-v1">
-    <!-- Content -->
-    <div class="g-brd-bottom g-brd-secondary-light-v1">
-      <div class="container g-pt-100">
-        <div class="row justify-content-start g-mb-3 g-mb-0--md">
-          <div class="col-md-5 g-mb-30">
-            <h2 class="h5 g-color-gray-light-v3 mb-4">Products</h2>
-
-            <div class="row">
-              <div class="col-4 g-mb-20">
-                <!-- Links -->
-                <ul class="list-unstyled g-font-size-13 mb-0">
-                  <li class="g-mb-10">
-                    <a class="u-link-v5 g-color-gray-dark-v5 g-color-primary--hover" href="#!">SmartPhone</a>
-                  </li>
-                  <li class="g-my-10">
-                    <a class="u-link-v5 g-color-gray-dark-v5 g-color-primary--hover" href="#!">Laptop</a>
-                  </li>
-                  <li class="g-my-10">
-                    <a class="u-link-v5 g-color-gray-dark-v5 g-color-primary--hover" href="#!">Mouse</a>
-                  </li>
-                  <li class="g-my-10">
-                    <a class="u-link-v5 g-color-gray-dark-v5 g-color-primary--hover" href="#!">Monitor</a>
-                  </li>
-                  <li class="g-my-10">
-                    <a class="u-link-v5 g-color-gray-dark-v5 g-color-primary--hover" href="#!">Watch</a>
-                  </li>
-                </ul>
-                <!-- End Links -->
-              </div>
-
-              <div class="col-4 g-mb-20">
-                <!-- Links -->
-                <ul class="list-unstyled g-font-size-13 mb-0">
-                  <li class="g-mb-10">
-                    <a class="u-link-v5 g-color-gray-dark-v5 g-color-primary--hover" href="#!">Tablet</a>
-                  </li>
-                  <li class="g-my-10">
-                    <a class="u-link-v5 g-color-gray-dark-v5 g-color-primary--hover" href="#!">Accessorie</a>
-                  </li>
-                  <li class="g-my-10">
-                    <a class="u-link-v5 g-color-gray-dark-v5 g-color-primary--hover" href="#!">Mouses Pad</a>
-                  </li>
-                  <li class="g-my-10">
-                    <a class="u-link-v5 g-color-gray-dark-v5 g-color-primary--hover" href="#!">Handset</a>
-                  </li>
-                  <li class="g-my-10">
-                    <a class="u-link-v5 g-color-gray-dark-v5 g-color-primary--hover" href="#!">Phablet</a>
-                  </li>
-                </ul>
-                <!-- End Links -->
-              </div>
-
-              <div class="col-4 g-mb-20">
-                <!-- Links -->
-                <ul class="list-unstyled g-font-size-13 mb-0">
-                  <li class="g-mb-10">
-                    <a class="u-link-v5 g-color-gray-dark-v5 g-color-primary--hover" href="#!">Speakers</a>
-                  </li>
-                  <li class="g-my-10">
-                    <a class="u-link-v5 g-color-gray-dark-v5 g-color-primary--hover" href="#!">Camera</a>
-                  </li>
-                  <li class="g-my-10">
-                    <a class="u-link-v5 g-color-gray-dark-v5 g-color-primary--hover" href="#!">Play Station</a>
-                  </li>
-                  <li class="g-my-10">
-                    <a class="u-link-v5 g-color-gray-dark-v5 g-color-primary--hover" href="#!">Xbox</a>
-                  </li>
-                </ul>
-                <!-- End Links -->
+  <footer class="mt-5 mb-4 border-top">
+    <div class="container pt-5 pb-5">
+      <div class="row justify-content-center">
+        <div class="col-12">
+          <div class="row">
+            <div class="col-12">
+              <div class="row">
+                <div class="col-12 col-lg-3">
+                  <img width="200px" src="<?php echo $data['asset'] ?>/img/img10.png">
+                </div>
+                <div class="col-12 col-lg-3">
+                  <h5>BEKASAN</h5>
+                  <ul class="list-unstyled">
+                    <li><a href="<?php echo $data['URLROOT'] ?>/pages/aboutus">Tentang Bekasan</a></li>
+                    <li><a href="<?php echo $data['URLROOT'] ?>/helps/index">Pusat Bantuan</a></li>
+                  </ul>
+                </div>
+                <div class="col-12 col-lg-3">
+                  <h5>Kontak</h5>
+                  <ul class="list-unstyled">
+                    <li>Yogyakarta</li>
+                    <li>Indonesia</li>
+                    <li>0821 - 2222 - 8888</li>
+                    <li>support@bekasan.id</li>
+                  </ul>
+                </div>
               </div>
             </div>
           </div>
-
-          <div class="col-sm-6 col-md-3 g-mb-30 g-mb-0--sm">
-            <h2 class="h5 g-color-gray-light-v3 mb-4">Brands</h2>
-
-            <div class="row">
-              <div class="col-6 g-mb-20">
-                <!-- Links -->
-                <ul class="list-unstyled g-font-size-13 mb-0">
-                  <li class="g-mb-10">
-                    <a class="u-link-v5 g-color-gray-dark-v5 g-color-primary--hover" href="#!">Logitech</a>
-                  </li>
-                  <li class="g-my-10">
-                    <a class="u-link-v5 g-color-gray-dark-v5 g-color-primary--hover" href="#!">Samsung</a>
-                  </li>
-                  <li class="g-my-10">
-                    <a class="u-link-v5 g-color-gray-dark-v5 g-color-primary--hover" href="#!">Microsoft</a>
-                  </li>
-                  <li class="g-my-10">
-                    <a class="u-link-v5 g-color-gray-dark-v5 g-color-primary--hover" href="#!">Apple</a>
-                  </li>
-                </ul>
-                <!-- End Links -->
-              </div>
-
-              <div class="col-6 g-mb-20">
-                <!-- Links -->
-                <ul class="list-unstyled g-font-size-13 mb-0">
-                  <li class="g-mb-10">
-                    <a class="u-link-v5 g-color-gray-dark-v5 g-color-primary--hover" href="#!">Huawei</a>
-                  </li>
-                  <li class="g-my-10">
-                    <a class="u-link-v5 g-color-gray-dark-v5 g-color-primary--hover" href="#!">Motorola</a>
-                  </li>
-                  <li class="g-my-10">
-                    <a class="u-link-v5 g-color-gray-dark-v5 g-color-primary--hover" href="#!">Sony</a>
-                  </li>
-                  <li class="g-my-10">
-                    <a class="u-link-v5 g-color-gray-dark-v5 g-color-primary--hover" href="#!">Nokia</a>
-                  </li>
-                </ul>
-                <!-- End Links -->
-              </div>
-            </div>
-          </div>
-
-          <div class="col-sm-5 col-md-3 ml-auto g-mb-30 g-mb-0--sm">
-            <h2 class="h5 g-color-gray-light-v3 mb-4">Contacts</h2>
-
-            <!-- Links -->
-            <ul class="list-unstyled g-color-gray-dark-v5 g-font-size-13">
-              <li class="media my-3">
-                <i class="d-flex mt-1 mr-3 icon-hotel-restaurant-235 u-line-icon-pro"></i>
-                <div class="media-body">
-                  Unit 25 Suite 3, 925 Prospect
-                  <br>
-                  PI New York Avenue
-                </div>
-              </li>
-              <li class="media my-3">
-                <i class="d-flex mt-1 mr-3 icon-communication-062 u-line-icon-pro"></i>
-                <div class="media-body">
-                  htmlstream@support.com
-                </div>
-              </li>
-              <li class="media my-3">
-                <i class="d-flex mt-1 mr-3 icon-communication-033 u-line-icon-pro"></i>
-                <div class="media-body">
-                  +32 333 444 555
-                </div>
-              </li>
-            </ul>
-            <!-- End Links -->
-          </div>
         </div>
-
-        <!-- Secondary Content -->
-        <div class="row">
-          <div class="col-md-4 g-mb-50">
-            <h2 class="h5 g-color-gray-light-v3 mb-4">Subscribe</h2>
-
-            <!-- Subscribe Form -->
-            <form class="g-bg-lightblue-v1 input-group u-shadow-v19 rounded">
-              <input class="form-control g-brd-none g-color-gray-dark-v5 g-bg-main-light-v2 g-bg-main-light-v2--focus g-placeholder-gray-dark-v3 rounded g-px-20 g-py-8" type="email" placeholder="Enter your email">
-              <span class="input-group-addon u-shadow-v19 g-brd-none g-bg-main-light-v2 g-pa-5">
-                <button class="btn u-btn-primary rounded text-uppercase g-py-8 g-px-18" type="submit">
-                  <i class="fa fa-angle-right"></i>
-                </button>
-              </span>
-            </form>
-            <!-- End Subscribe Form -->
-          </div>
-
-          <div class="col-12 col-md-6 ml-auto g-mb-30 float-right">
-            <h2 class="h5 g-color-gray-light-v3 mb-4">Follow Us On:</h2>
-
-            <!-- Social Icons -->
-            <ul class="list-inline mb-50">
-              <li class="list-inline-item g-mr-2">
-                <a class="u-icon-v1 u-icon-slide-up--hover g-color-gray-dark-v4 g-color-white--hover g-bg-facebook--hover rounded" href="#!">
-                  <i class="g-font-size-18 g-line-height-1 u-icon__elem-regular fa fa-facebook"></i>
-                  <i class="g-color-white g-font-size-18 g-line-height-0_8 u-icon__elem-hover fa fa-facebook"></i>
-                </a>
-              </li>
-              <li class="list-inline-item g-mx-2">
-                <a class="u-icon-v1 u-icon-slide-up--hover g-color-gray-dark-v4 g-color-white--hover g-bg-twitter--hover rounded" href="#!">
-                  <i class="g-font-size-18 g-line-height-1 u-icon__elem-regular fa fa-twitter"></i>
-                  <i class="g-color-white g-font-size-18 g-line-height-0_8 u-icon__elem-hover fa fa-twitter"></i>
-                </a>
-              </li>
-              <li class="list-inline-item g-mx-2">
-                <a class="u-icon-v1 u-icon-slide-up--hover g-color-gray-dark-v4 g-color-white--hover g-bg-instagram--hover rounded" href="#!">
-                  <i class="g-font-size-18 g-line-height-1 u-icon__elem-regular fa fa-instagram"></i>
-                  <i class="g-color-white g-font-size-18 g-line-height-0_8 u-icon__elem-hover fa fa-instagram"></i>
-                </a>
-              </li>
-              <li class="list-inline-item g-mx-2">
-                <a class="u-icon-v1 u-icon-slide-up--hover g-color-gray-dark-v4 g-color-white--hover g-bg-google-plus--hover rounded" href="#!">
-                  <i class="g-font-size-18 g-line-height-1 u-icon__elem-regular fa fa-google-plus"></i>
-                  <i class="g-color-white g-font-size-18 g-line-height-0_8 u-icon__elem-hover fa fa-google-plus"></i>
-                </a>
-              </li>
-              <li class="list-inline-item g-mx-2">
-                <a class="u-icon-v1 u-icon-slide-up--hover g-color-gray-dark-v4 g-color-white--hover g-bg-linkedin--hover rounded" href="#!">
-                  <i class="g-font-size-18 g-line-height-1 u-icon__elem-regular fa fa-linkedin"></i>
-                  <i class="g-color-white g-font-size-18 g-line-height-0_8 u-icon__elem-hover fa fa-linkedin"></i>
-                </a>
-              </li>
-            </ul>
-            <!-- End Social Icons -->
-          </div>
-        </div>
-        <!-- End Secondary Content -->
       </div>
     </div>
-    <!-- End Content -->
+    <div class="container-fluid">
+      <div class="row border-top justify-content-center align-items-center pt-4">
+        <div class="col-auto text-gray-500 font-weight-light">
+          2020 Copyright Bekasan
+        </div>
+      </div>
+    </div>
   </footer>
   <!-- End Footer -->
 

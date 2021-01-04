@@ -11,5 +11,5 @@
         "files": ["public/index.php"],
         "classmap": ["app"]
     },
-    "minimum-stability": "prefer-stable"
+    "minimum-stability": "dev"
 }
