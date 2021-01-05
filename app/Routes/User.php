@@ -53,7 +53,7 @@ class User extends ControllerUser
         if ($_SESSION['r']) {
 
             $data = [
-                'title' => 'Profil',
+                'title' => 'Bekasan - Pusat jual beli barang bekas',
                 'URLROOT' => $this->env("urlroot"),
                 'asset' => $this->env("asset"),
             ];

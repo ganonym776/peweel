@@ -19,6 +19,18 @@ class User extends Model
         return $result;
     }
 
+    public function countUser()
+    {
+        $result = $this->db->select('SELECT count(id) as total FROM user');
+        return $result;
+    }
+
+    public function lokasiUser()
+    {
+        $result = $this->db->select('SELECT provinsi,kabupaten,COUNT(*) as total FROM `user` GROUP BY provinsi,kabupaten');
+        return $result;
+    }
+
     public function findUserByEmail($email)
     {
         $result = $this->db->select("SELECT * FROM user WHERE email='" . $email . "'");

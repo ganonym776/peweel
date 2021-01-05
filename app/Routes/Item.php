@@ -59,17 +59,61 @@ class Item extends ControllerItem
             }
         }
 
-        $this->view('Pages/List', $data);
+        $this->view('Item/List', $data);
     }
 
-    public function list()
+    public function list($params = null)
     {
-        $data = [
-            'title' => 'Bekasan - Pusat jual beli barang bekas',
-            'URLROOT' => $this->env("urlroot"),
-            'asset' => $this->env("asset"),
-        ];
+        if (!isset($params)) {
+            $data = [
+                'title' => 'Bekasan - Pusat jual beli barang bekas',
+                'URLROOT' => $this->env("urlroot"),
+                'asset' => $this->env("asset"),
+                'index' => false,
+                'kategori' => $this->KategoriController->getAll(),
+                'item' => $this->ItemController->getAll()
+            ];
+        } else {
+            if (is_string((int) $params) && ((int) $params > 0)) {
+                $data = [
+                    'title' => 'Bekasan - Pusat jual beli barang bekas',
+                    'URLROOT' => $this->env("urlroot"),
+                    'asset' => $this->env("asset"),
+                    'index' => false,
+                    'kategori' => $this->KategoriController->getAll(),
+                    'item' => $this->ItemController->nextPage($params)
+                ];
+            } else {
+                $data = [
+                    'title' => 'Bekasan - Pusat jual beli barang bekas',
+                    'URLROOT' => $this->env("urlroot"),
+                    'asset' => $this->env("asset"),
+                    'index' => false,
+                    'kategori' => $this->KategoriController->getAll(),
+                    'item' => $this->ItemController->getByKategori($params)
+                ];
+            }
+        }
 
-        $this->view('Pages/List', $data);
+        $this->view('Item/List', $data);
+    }
+
+    public function detail($id_item)
+    {
+        if ($_SESSION['r']) {
+            $data = [
+                'title' => 'Bekasan - Pusat jual beli barang bekas',
+                'URLROOT' => $this->env("urlroot"),
+                'asset' => $this->env("asset"),
+                // 'totalIklan' => $this->countItem(),
+                // 'totalUser' => $this->countUser(),
+                // 'lokasiUser' => $this->lokasiUser(),
+                // 'kategori' => $this->chartKategori(),
+            ];
+
+            $this->view('Item/Detail', $data);
+        } else {
+            header('location:' . $this->env("urlroot") . '/auth/login');
+        }
     }
 }

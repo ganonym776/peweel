@@ -182,7 +182,7 @@ class User extends Controller
         if ($_SESSION['r'] === "customer") {
             header('location:' . $this->urlroot() . '/item/index');
         } else {
-            header('location:' . $this->urlroot() . '/item/index');
+            header('location:' . $this->urlroot() . '/admin/index');
         }
     }
 
