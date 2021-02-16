@@ -3,10 +3,20 @@
 namespace Routes;
 
 use Configs\Env;
-use Library\Controller;
+use Controllers\Item as Controller;
+use Controllers\Kategori;
 
 class Pages extends Controller
 {
+    protected $ItemController;
+    protected $KategoriController;
+
+    public function __construct()
+    {
+        $this->ItemController = new Controller();
+        $this->KategoriController = new Kategori();
+    }
+
     private function env($request)
     {
         $e = new Env();
@@ -14,8 +24,6 @@ class Pages extends Controller
             return $e::$URLROOT . "/public";
         } elseif ($request === "urlroot") {
             return $e::$URLROOT;
-        } elseif ($request === "vendor") {
-            return $e::$URLROOT . "/vendor";
         }
     }
 
@@ -25,7 +33,10 @@ class Pages extends Controller
             'title' => 'Bekasan - Pusat jual beli barang bekas',
             'URLROOT' => $this->env("urlroot"),
             'asset' => $this->env("asset"),
-            'vendor' => $this->env("vendor"),
+            'item' => $this->ItemController->getAll(),
+            'banner' => $this->ItemController->getAllBanner(),
+            'kategori' => $this->KategoriController->getAll(),
+            'index' => true,
         ];
 
         $this->view('Index', $data);
@@ -37,7 +48,6 @@ class Pages extends Controller
             'title' => 'About Us',
             'URLROOT' => $this->env("urlroot"),
             'asset' => $this->env("asset"),
-            'vendor' => $this->env("vendor"),
         ];
 
         $this->view('Pages/AboutUs', $data);
@@ -49,7 +59,6 @@ class Pages extends Controller
             'title' => 'Pusat Bantuan',
             'URLROOT' => $this->env("urlroot"),
             'asset' => $this->env("asset"),
-            'vendor' => $this->env("vendor"),
         ];
 
         $this->view('Help/PusatBantuan', $data);
@@ -61,7 +70,6 @@ class Pages extends Controller
             'title' => 'Ups.. Not Found!!',
             'URLROOT' => $this->env("urlroot"),
             'asset' => $this->env("asset"),
-            'vendor' => $this->env("vendor"),
         ];
 
         $this->view('Pages/404', $data);

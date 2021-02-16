@@ -8,6 +8,7 @@ use Configs\Env;
 class User extends Controller
 {
     protected $userModel;
+    protected $allData;
 
     private function urlroot()
     {
@@ -20,6 +21,54 @@ class User extends Controller
         $this->userModel = $this->model('User');
     }
 
+    public function updateFoto($data)
+    {
+        $allowed = array("jpg" => "image/jpg", "jpeg" => "image/jpeg", "png" => "image/png");
+
+        $filename = basename($data['lokasi_foto']["name"]);
+        $filetype = $data['lokasi_foto']["type"];
+        $filesize = $data['lokasi_foto']["size"];
+        // Verify file extension
+        $ext = strtolower(pathinfo($filename, PATHINFO_EXTENSION));
+        if (!array_key_exists($ext, $allowed)) {
+            $errors['lokasi_foto'] = "Error: Please select a valid file format.";
+        };
+
+        // Verify file size - 5MB maximum
+        $maxsize = 2 * 1024 * 1024;
+        if ($filesize > $maxsize) {
+            $errors['lokasi_foto'] = "Error: File size is larger than the allowed limit.";
+        };
+
+        // Verify MYME type of the file
+        if (in_array($filetype, $allowed)) {
+            // Check whether file exists before uploading it
+            $dir = $this->urlroot() . "/public/user/";
+            if (file_exists($dir . $data['username'])) {
+                move_uploaded_file($data['lokasi_foto']["tmp_name"], $dir . $data['username']);
+            } else {
+                move_uploaded_file($data['lokasi_foto']["tmp_name"], $dir . $data['username']);
+            }
+        } else {
+            $errors['lokasi_foto'] = "Error: There was a problem uploading your file. Please try again.";
+        }
+
+        // jika tidak ada error maka jalankan perintah ini
+        if (empty($errors)) {
+            $hasil = $this->userModel->updateFoto("../public/user/" . $data['username'] . "/" . $filename, $data['username']);
+            // login user
+            if ($hasil) {
+                // redirect ke login 
+                header('location:' . $this->urlroot() . '/user/profile');
+            } else {
+                $data['error'] = "terjadi kesalahan, mohon coba lagi";
+                return $data;
+            }
+        } else {
+            $data['error'] = $errors;
+            return $data;
+        }
+    }
     public function loginValidation($data)
     {
         //membersihkan data dari karakter XSS
@@ -172,6 +221,15 @@ class User extends Controller
             $data['error'] = $errors;
             return $data;
         }
+    }
+
+    public function getByUsername($username)
+    {
+        //membersihkan data dari karakter XSS
+        $username = htmlspecialchars($username);
+
+        $this->allData = $this->userModel->findUserByUsername($username);
+        return $this->allData[0];
     }
 
     public function createUserSession($user)

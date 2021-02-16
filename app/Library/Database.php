@@ -30,6 +30,15 @@ class Database extends Env
         $mysqli->close();
     }
 
+    public function update($queryString)
+    {
+        $mysqli = $this->connect();
+        $this->stmt = $mysqli->prepare($queryString);
+        $this->stmt->execute();
+        return $this->resultSet();
+        $mysqli->close();
+    }
+
     public function insert($tableName, $data)
     {
         $mysqli = $this->connect();

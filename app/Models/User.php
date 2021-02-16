@@ -43,6 +43,12 @@ class User extends Model
         return $result;
     }
 
+    public function updateFoto($dataFoto, $username)
+    {
+        $result = $this->db->update("UPDATE user SET lokasi_foto='" . $dataFoto . "' WHERE username='" . $username . "'");
+        return $result;
+    }
+
     public function register($data)
     {
         $result = $this->db->insert('user', $data);

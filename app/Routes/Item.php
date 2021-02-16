@@ -8,8 +8,9 @@ use Controllers\Kategori as ControllerKategori;
 
 class Item extends ControllerItem
 {
-    protected $ItemController;
     protected $KategoriController;
+    protected $ItemController;
+
     public function __construct()
     {
         $this->ItemController = new ControllerItem();
@@ -34,16 +35,18 @@ class Item extends ControllerItem
                 'URLROOT' => $this->env("urlroot"),
                 'asset' => $this->env("asset"),
                 'index' => true,
+                'banner' => $this->ItemController->getAllBanner(),
                 'kategori' => $this->KategoriController->getAll(),
                 'item' => $this->ItemController->getAll()
             ];
         } else {
-            if (is_string((int) $params) && ((int) $params > 0)) {
+            if (((int) $params > 0)) {
                 $data = [
                     'title' => 'Bekasan - Pusat jual beli barang bekas',
                     'URLROOT' => $this->env("urlroot"),
                     'asset' => $this->env("asset"),
                     'index' => true,
+                    'banner' => $this->ItemController->getAllBanner(),
                     'kategori' => $this->KategoriController->getAll(),
                     'item' => $this->ItemController->nextPage($params)
                 ];
@@ -53,6 +56,7 @@ class Item extends ControllerItem
                     'URLROOT' => $this->env("urlroot"),
                     'asset' => $this->env("asset"),
                     'index' => true,
+                    'banner' => $this->ItemController->getAllBanner(),
                     'kategori' => $this->KategoriController->getAll(),
                     'item' => $this->ItemController->getByKategori($params)
                 ];

@@ -30,6 +30,12 @@ class Item extends Controller
         return $this->allData[$this->current - 1];
     }
 
+    public function getAllBanner()
+    {
+        $this->allData = $this->itemModel->getAllBanner();
+        return $this->allData;
+    }
+
     public function getByKategori($kategori)
     {
         $this->allData = array_chunk($this->itemModel->findItemByKategori($kategori), 9);

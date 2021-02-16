@@ -43,7 +43,7 @@
         <div class="col-auto d-flex flex-nowrap g-py-12">
           <!-- Logo -->
           <a class="ml-3 d-flex" href="<?php echo $data['URLROOT'] ?>">
-            <img src="<?php echo $data['asset'] ?>/img/img5.png" alt="Logo Bekasan" height="40">
+            <img src="<?php echo $data['asset'] ?>/img/logo_putih.svg" alt="Logo Bekasan" height="40">
           </a>
           <!-- End Logo -->
 

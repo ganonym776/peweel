@@ -48,7 +48,7 @@ class Core
         error_reporting(E_ERROR | E_PARSE);
 
         if (!is_callable([$this->currentRoute, $this->currentMethod])) {
-            $this->currentRoute = '\\Routes\\' . ucwords("Pages");
+            $this->currentRoute = '\\Routes\\Pages';
             // membuat object Route
             $this->currentRoute = new $this->currentRoute();
             // jalankan Route dan Method, serta kirimkan params jika ada

@@ -103,13 +103,22 @@
       <div class="row d-flex justify-content-center align-items-center py-3">
         <div class="col-4">
           <div class="img">
-            <img src="<?php echo $data['asset'] ?>/img/img7.jpg" width="200" height="200" class="rounded-circle">
-            <form class="mt-2">
+
+            <form class="mt-2" action="<?php echo $data['URLROOT'] . '/user/updatef/' . $data['user']['username']; ?>" method="post" enctype="multipart/form-data">
+              <div class="mt-3">
+                <div class="mb-5 text-center">
+                  <img id="image" src="<?php if (empty($data['lokasi_foto'])) {
+                                          echo $data['asset'] . '/img/user_default.jpeg';
+                                        } else {
+                                          echo $data['lokasi_foto'];
+                                        } ?>" width="200" height="200" class="rounded-circle">
+                </div>
+              </div>
               <div class="custom-file">
-                <input type="file" class="custom-file-input" id="profil-pic" aria-describedby="profil-pic" name="profil-pic">
+                <input type="file" id="fileInput" class="custom-file-input" id="profil-pic" aria-describedby="profil-pic" name="lokasi_foto" accept="image/jpg,image/jpeg,image/png">
                 <label class="custom-file-label" for="profil-pic">Pilih file</label>
               </div>
-              <input class="w-100" type="submit" name="submit" value="Upload Foto">
+              <input class="w-100" type="submit" name="submit" value="Upload">
               <small><strong>Note:</strong> Only .jpg, .jpeg, .png formats allowed to a max size of 2 MB.</small>
             </form>
           </div>
@@ -119,37 +128,37 @@
             <div class="input-group-prepend w-label">
               <span class="input-group-text" id="username">Username</span>
             </div>
-            <input type="text" class="form-control bg-disable" placeholder="Username" aria-label="Username" aria-describedby="username" value="clarisa123" disabled>
+            <input type="text" class="form-control bg-disable" placeholder="Username" aria-label="Username" aria-describedby="username" value="<?php echo $data['user']['username']; ?>" disabled>
           </div>
           <div class="input-group mb-3">
             <div class="input-group-prepend w-label">
               <span class="input-group-text" id="email">Email</span>
             </div>
-            <input type="text" class="form-control bg-disable" placeholder="Email" aria-label="email" aria-describedby="email" value="adhbjnfskm@gmail.com" disabled>
+            <input type="text" class="form-control bg-disable" placeholder="Email" aria-label="email" aria-describedby="email" value="<?php echo $data['user']['email']; ?>" disabled>
           </div>
           <div class="input-group mb-3">
             <div class="input-group-prepend w-label">
               <span class="input-group-text" id="first_name">Nama Depan</span>
             </div>
-            <input type="text" class="form-control" placeholder="Nama Depan" aria-label="Nama Depan" aria-describedby="first_name" value="Clarisa">
+            <input type="text" class="form-control" placeholder="Nama Depan" aria-label="Nama Depan" aria-describedby="first_name" value="<?php echo $data['user']['first_name']; ?>">
           </div>
           <div class="input-group mb-3">
             <div class="input-group-prepend w-label">
               <span class="input-group-text" id="last_name">Nama Belakang</span>
             </div>
-            <input type="text" class="form-control" placeholder="Nama Belakang" aria-label="Nama Belakang" aria-describedby="last_name" value="Clara">
+            <input type="text" class="form-control" placeholder="Nama Belakang" aria-label="Nama Belakang" aria-describedby="last_name" value="<?php echo $data['user']['last_name']; ?>">
           </div>
           <div class="input-group mb-3">
             <div class="input-group-prepend w-label">
               <span class="input-group-text" id="no-telpon">Nomor Telpon</span>
             </div>
-            <input type="text" class="form-control" placeholder="Nomor Telpon" aria-label="No Telpon" aria-describedby="no-telpon" value="09876654267890">
+            <input type="text" class="form-control" placeholder="Nomor Telpon" aria-label="No Telpon" aria-describedby="no-telpon" value="<?php echo $data['user']['phone_num']; ?>">
           </div>
           <div class="input-group mb-3">
             <div class="input-group-prepend w-label">
               <span class="input-group-text" id="address">Alamat</span>
             </div>
-            <textarea name="address" class="form-control" aria-describedby="address" placeholder="Alamat" aria-label="Alamat" cols="30" rows="3"></textarea>
+            <textarea name="address" class="form-control" aria-describedby="address" placeholder="Alamat" aria-label="Alamat" cols="30" rows="3"><?php echo $data['user']['address']; ?></textarea>
           </div>
           <button class="btn btn-primary">Simpan Perubahan</button>
         </div>
@@ -211,6 +220,27 @@
   <script src="<?php echo $data['asset'] ?>/js/jquery-3.5.1.min.js"></script>
   <script src="<?php echo $data['asset'] ?>/js/bootstrap.js"></script>
   <script src="<?php echo $data['asset'] ?>/js/retina.min.js"></script>
+  <script>
+    document.getElementById('fileInput').onchange = function(evt) {
+      var tgt = evt.target || window.event.srcElement,
+        files = tgt.files;
+
+      // FileReader support
+      if (FileReader && files && files.length) {
+        var fr = new FileReader();
+        fr.onload = function() {
+          document.getElementById('image').src = fr.result;
+        }
+        fr.readAsDataURL(files[0]);
+      }
+
+      // Not supported
+      else {
+        // fallback -- perhaps submit the input to an iframe and temporarily store
+        // them on the server until the user's session ends.
+      }
+    }
+  </script>
 </body>
 
 </html>

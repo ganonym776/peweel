@@ -19,6 +19,12 @@ class Item extends Model
         return $result;
     }
 
+    public function getAllBanner()
+    {
+        $result = $this->db->select('SELECT * FROM banner');
+        return $result;
+    }
+
     public function countItem()
     {
         $result = $this->db->select('SELECT COUNT(id_item) as total FROM item');

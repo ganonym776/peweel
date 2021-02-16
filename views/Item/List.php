@@ -30,15 +30,38 @@
   <!-- CSS Customization -->
   <link rel="stylesheet" href="<?php echo $data['asset'] ?>/unify/css/custom.css">
   <style>
-    .bg-menu {
-      background-color: lightblue;
+    .bg-menu,
+    .bg-menu:link {
+      background-color: #5fa2dd;
       border-radius: 100px;
       padding: 0.2rem;
       text-decoration: none;
-      color: black;
+      color: white;
       display: flex;
       justify-content: center;
       align-items: center;
+    }
+
+    .bg-menu:hover,
+    #profileMenu>li>a {
+      text-decoration: none;
+      color: whitesmoke;
+    }
+
+    #profileMenu {
+      list-style-type: none;
+      background-color: #5fd2dd;
+      border-radius: 20px;
+      padding-left: 0;
+    }
+
+    #profileMenu>li:hover {
+      background-color: #5ec2dd;
+    }
+
+    #profileMenu>li>a:link {
+      text-decoration: none;
+      color: white;
     }
   </style>
 </head>
@@ -162,12 +185,11 @@
       <div class="container-fluid g-pb-50">
         <!-- Slider owl carousel -->
         <div class="owl-carousel owl-theme">
-          <div class="item">
-            <img src="<?php echo $data['asset'] ?>/unify/img-temp/1920x500/img1.jpg" alt="Image Description">
-          </div>
-          <div class="item">
-            <img src="<?php echo $data['asset'] ?>/unify/img-temp/1920x500/img1.jpg" alt="Image Description">
-          </div>
+          <?php foreach ($data['banner'] as $key => $value) { ?>
+            <div class="item">
+              <img src="<?php echo $value['lokasi_foto'] ?>" alt="<?php echo $value['nama_banner'] ?>">
+            </div>
+          <?php } ?>
         </div>
         <!-- End Slider owl carousel -->
       </div>
@@ -285,7 +307,7 @@
                   <div class="col-6 col-lg-4 g-mb-30">
                     <!-- Product -->
                     <figure class="g-pos-rel g-mb-20">
-                      <img class="img-fluid" src="<?php echo $value['lokasi_foto'] ?>" alt="Image Description">
+                      <img class="img-fluid" src="<?php echo $value['lokasi_foto'] ?>" alt="<?php echo $value['nama_item']; ?>">
                     </figure>
 
                     <div class="media">
@@ -293,11 +315,10 @@
                       <div class="d-flex flex-column">
                         <h4 class="h6 g-color-black mb-1">
                           <a class="u-link-v5 g-color-black g-color-primary--hover" href="#!">
-                            <?php echo $value['nama_item']
-                            ?>
+                            <?php echo $value['nama_item']; ?>
                           </a>
                         </h4>
-                        <span class="d-block g-color-black g-font-size-17"><?php echo $value['harga'] ?></span>
+                        <span class="d-block g-color-black g-font-size-17"><?php echo "Rp " . number_format($value['harga'], 2, ',', '.'); ?></span>
                       </div>
                       <!-- End Product Info -->
                     </div>
